@@ -7,7 +7,7 @@ import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:http/http.dart';
-import 'package:query_string/query_string.dart';
+import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
 
 class WooCommerceAPI {
@@ -88,8 +88,8 @@ class WooCommerceAPI {
     print(signingKey);
     //print(UTF8.encode(signingKey));
     var hmacSha1 =
-        new crypto.Hmac(crypto.sha1, UTF8.encode(signingKey)); // HMAC-SHA1
-    var signature = hmacSha1.convert(UTF8.encode(baseString));
+        new crypto.Hmac(crypto.sha1, utf8.encode(signingKey)); // HMAC-SHA1
+    var signature = hmacSha1.convert(utf8.encode(baseString));
 
     print(signature);
 
@@ -133,12 +133,12 @@ class WooCommerceAPI {
      
   }
 
-  postAsync(String endPoint, Object data) async {
+  Future<Response> postAsync(String endPoint, Object data) async {
 
     var url = this._getOAuthURL("POST", endPoint);
 
     final response = await http.post(url, body: data);
 
-    return JSON.decode(response.body); 
+    return json.decode(response.body); 
   }
 }
