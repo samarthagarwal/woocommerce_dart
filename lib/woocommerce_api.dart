@@ -11,24 +11,38 @@ import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
 
 class WooCommerceAPI {
-  var url;
-  var consumerKey;
-  var consumerSecret;
+  String url;
+  String consumerKey;
+  String consumerSecret;
+  bool isHttps;
 
   WooCommerceAPI(url, consumerKey, consumerSecret){
     this.url = url;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
+
+    if(this.url.startsWith("https")){
+      this.isHttps = true;
+    } else {
+      this.isHttps = false;
+    }
+
   }
 
 
   _getOAuthURL(String request_method, String endpoint) {
     var consumerKey = this.consumerKey; //"ck_4e943ec0f3c76eba33fffac4b7fc0d2f1f3ca91a";
     var consumerSecret = this.consumerSecret; //"cs_fbb723138e354e30c3d4d4e0c0f95389bf610044";
+
     var token = "";
     var token_secret = "";
     var url = this.url + "/wp-json/wc/v2/" + endpoint;
     var containsQueryParams = url.contains("?");
+
+    // If website is HTTPS based, no need for OAuth, just return the URL with CS and CK as query params
+    if(this.isHttps == true){
+      return url + (containsQueryParams == true ? "&consumerKey=" + this.consumerKey + "&consumerSecret=" + this.consumerSecret : "?consumerKey=" + this.consumerKey + "&consumerSecret=" + this.consumerSecret);
+    }
 
     var rand = new Random();
     var codeUnits = new List.generate(10, (index) {
@@ -129,7 +143,9 @@ class WooCommerceAPI {
 
     var url = this._getOAuthURL("GET", endPoint);
 
-    return http.get(url);
+    final response = await http.get(url);
+
+    return json.decode(response.body);
      
   }
 

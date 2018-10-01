@@ -24,12 +24,7 @@ WooCommerceAPI wc_api = new WooCommerceAPI(
 List _products = new List();
 
 wc_api.getAsync("products?page=2").then((val) {  
-    List parsedMap = JSON.decode(val.body);
-    setState(() {
-    parsedMap.forEach((f){
-        _products.add(f);
-    }); 
-    print(_products.length);
-    });
+    List products = val;
+    print("Got " + products.length + "products received");
 });
 ```

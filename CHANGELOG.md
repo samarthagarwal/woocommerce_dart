@@ -1,3 +1,8 @@
+## [0.0.5]
+* Updated to work with HTTPS websites
+* Minor bug fixes
+* Updated ReadMe
+
 ## [0.0.4]
 * Fixed to work without the query_string package
 * Minor bug fixes
