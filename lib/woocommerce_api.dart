@@ -52,8 +52,8 @@ class WooCommerceAPI {
     var nonce = new String.fromCharCodes(codeUnits);
     int timestamp = (new DateTime.now().millisecondsSinceEpoch / 1000).toInt();
 
-    print(timestamp);
-    print(nonce);
+    //print(timestamp);
+    //print(nonce);
 
     var method = request_method;
     var path = url.split("?")[0];
@@ -96,39 +96,31 @@ class WooCommerceAPI {
         "&" +
         Uri.encodeQueryComponent(parameterString);
 
-    print(baseString);
+    //print(baseString);
 
     var signingKey = consumerSecret + "&" + token;
-    print(signingKey);
+    //print(signingKey);
     //print(UTF8.encode(signingKey));
     var hmacSha1 =
         new crypto.Hmac(crypto.sha1, utf8.encode(signingKey)); // HMAC-SHA1
     var signature = hmacSha1.convert(utf8.encode(baseString));
 
-    print(signature);
+    //print(signature);
 
     var finalSignature = base64Encode(signature.bytes);
-    print(finalSignature);
+    //print(finalSignature);
 
     var requestUrl = "";
 
     if (containsQueryParams == true) {
-      print(url.split("?")[0] +
-          "?" +
-          parameterString +
-          "&oauth_signature=" +
-          Uri.encodeQueryComponent(finalSignature));
+      //print(url.split("?")[0] + "?" + parameterString + "&oauth_signature=" + Uri.encodeQueryComponent(finalSignature));
       requestUrl = url.split("?")[0] +
           "?" +
           parameterString +
           "&oauth_signature=" +
           Uri.encodeQueryComponent(finalSignature);
     } else {
-      print(url +
-          "?" +
-          parameterString +
-          "&oauth_signature=" +
-          Uri.encodeQueryComponent(finalSignature));
+      //print(url + "?" +  parameterString + "&oauth_signature=" + Uri.encodeQueryComponent(finalSignature));
       requestUrl = url +
           "?" +
           parameterString +
@@ -139,7 +131,7 @@ class WooCommerceAPI {
     return requestUrl;
   }
 
-  Future<Response> getAsync(String endPoint) async {
+  Future<dynamic> getAsync(String endPoint) async {
 
     var url = this._getOAuthURL("GET", endPoint);
 
@@ -149,7 +141,7 @@ class WooCommerceAPI {
      
   }
 
-  Future<Response> postAsync(String endPoint, Object data) async {
+  Future<dynamic> postAsync(String endPoint, Object data) async {
 
     var url = this._getOAuthURL("POST", endPoint);
 
