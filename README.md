@@ -38,12 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> products = [];
 
   Future getProducts() async {
+
+    /// Initialize the API
     WooCommerceAPI wc_api = new WooCommerceAPI(
         "http://samarth.todaylivedeal.com",
         "ck_2b548f9652a3468f67bbc5bdb04e48edf270a000",
         "cs_fa349f1ba49b519ba9493eb2b64c88781b286b52"
     );
-
+    
+    /// Get data using the endpoint
     var p = await wc_api.getAsync("products");
     return p;
   }
@@ -74,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
           return ListView.builder(
             itemCount: s.data.length,
             itemBuilder: (_, index){
-
+            
+            /// create a list of products
               return ListTile(
                 leading: CircleAvatar(
                   child: Image.network(s.data[index]["images"][0]["src"]),

@@ -1,3 +1,6 @@
+## [0.0.6]
+* Fixed a fatal bug in types
+
 ## [0.0.5]
 * Updated to work with HTTPS websites
 * Minor bug fixes
