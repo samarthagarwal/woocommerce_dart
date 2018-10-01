@@ -1,6 +1,8 @@
-# woocommerce_api
+# WooCommerce SDK for Dart
 
 A dart package to interact with the WooCommerce API. It uses OAuth1.0a behind the scenes to generate the signature and URL string. It then makes calls and return the data back to the calling function.
+
+![Example code and preview](Screenshot.png)
 
 ## Complete Usage Example
 ```
@@ -96,7 +98,5 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 ```
+### Report any issues if you face any or drop me an email at samarthagarwal@live.com
 
-## Output
-
-![Example code's output](Screenshot.jpg)
