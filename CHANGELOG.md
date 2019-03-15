@@ -1,3 +1,6 @@
+## [0.0.7]
+* Fixed a bug for https websites where consumer_key and consumer_secret params are fixed
+
 ## [0.0.6]
 * Fixed a fatal bug in types
 
