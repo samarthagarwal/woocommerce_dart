@@ -6,7 +6,6 @@ import 'dart:convert';
 import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
-import 'package:http/http.dart';
 import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
 
@@ -31,8 +30,8 @@ class WooCommerceAPI {
 
 
   _getOAuthURL(String request_method, String endpoint) {
-    var consumerKey = this.consumerKey; //"ck_4e943ec0f3c76eba33fffac4b7fc0d2f1f3ca91a";
-    var consumerSecret = this.consumerSecret; //"cs_fbb723138e354e30c3d4d4e0c0f95389bf610044";
+    var consumerKey = this.consumerKey; 
+    var consumerSecret = this.consumerSecret;
 
     var token = "";
     var token_secret = "";
@@ -41,7 +40,7 @@ class WooCommerceAPI {
 
     // If website is HTTPS based, no need for OAuth, just return the URL with CS and CK as query params
     if(this.isHttps == true){
-      return url + (containsQueryParams == true ? "&consumerKey=" + this.consumerKey + "&consumerSecret=" + this.consumerSecret : "?consumerKey=" + this.consumerKey + "&consumerSecret=" + this.consumerSecret);
+      return url + (containsQueryParams == true ? "&consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret : "?consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret);
     }
 
     var rand = new Random();
