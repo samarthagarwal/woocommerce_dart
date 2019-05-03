@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the lookup method from the Set class, for the Dart programming language.">
   <title>lookup method - Set class - dart:core library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,7 +26,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-core/dart-core-library.html">dart:core</a></li>
-    <li><a href="dart-core/Set-class.html">Set<span class="signature">&lt;E&gt;</span></a></li>
+    <li><a href="dart-core/Set-class.html">Set<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
     <li class="self-crumb">lookup abstract method</li>
   </ol>
   <div class="self-name">lookup</div>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-core/dart-core-library.html">dart:core</a></li>
+      <li><a href="dart-core/Set-class.html">Set<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
+      <li class="self-crumb">lookup abstract method</li>
+    </ol>
+    
     <h5>Set class</h5>
     <ol>
       <li class="section-title"><a href="dart-core/Set-class.html#constructors">Constructors</a></li>
@@ -73,7 +87,6 @@
       <li><a href="dart-core/Set/removeWhere.html">removeWhere</a></li>
       <li><a href="dart-core/Set/retainAll.html">retainAll</a></li>
       <li><a href="dart-core/Set/retainWhere.html">retainWhere</a></li>
-      <li><a href="dart-core/Set/retype.html">retype</a></li>
       <li><a href="dart-core/Set/toSet.html">toSet</a></li>
       <li><a href="dart-core/Set/union.html">union</a></li>
       <li class="inherited"><a href="dart-core/Iterable/any.html">any</a></li>
@@ -109,37 +122,46 @@
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>lookup method</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>lookup method</h1></div>
 
     <section class="multi-line-signature">
       <span class="returntype">E</span>
-      <span class="name ">lookup</span>
+            <span class="name ">lookup</span>
 (<wbr><span class="parameter" id="lookup-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">object</span></span>)
+      
     </section>
     <section class="desc markdown">
       <p>If an object equal to <code>object</code> is in the set, return it.</p>
-<p>Checks if there is an object in the set that is equal to <code>object</code>.
-If so, that object is returned, otherwise returns null.</p>
+<p>Checks whether <code>object</code> is in the set, like <a href="dart-core/Set/contains.html">contains</a>, and if so,
+returns the object in the set, otherwise returns <code>null</code>.</p>
+<p>If the equality relation used by the set is not identity,
+then the returned object may not be <em>identical</em> to <code>object</code>.
+Some set implementations may not be able to implement this method.
+If the <a href="dart-core/Set/contains.html">contains</a> method is computed,
+rather than being based on an actual object instance,
+then there may not be a specific object instance representing the
+set element.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">E lookup(Object object);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

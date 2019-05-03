@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the EventSink class from the dart:async library, for the Dart programming language.">
   <title>EventSink class - dart:async library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,7 +26,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
-    <li class="self-crumb">EventSink<span class="signature">&lt;T&gt;</span> abstract class</li>
+    <li class="self-crumb">EventSink<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> abstract class</li>
   </ol>
   <div class="self-name">EventSink</div>
   <form class="search navbar-right" role="search">
@@ -35,7 +36,19 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
+      <li class="self-crumb">EventSink<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> abstract class</li>
+    </ol>
+    
     <h5>dart:async library</h5>
     <ol>
       <li class="section-title"><a href="dart-async/dart-async-library.html#classes">Classes</a></li>
@@ -58,6 +71,7 @@
       <li><a href="dart-async/Zone-class.html">Zone</a></li>
       <li><a href="dart-async/ZoneDelegate-class.html">ZoneDelegate</a></li>
       <li><a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a></li>
+    
     
     
     
@@ -93,8 +107,8 @@
     </ol>
   </div>
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>EventSink&lt;T&gt; class</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>EventSink&lt;<wbr><span class="type-parameter">T</span>&gt; class </h1></div>
 
     <section class="desc markdown">
       <p>A <a href="dart-core/Sink-class.html">Sink</a> that supports adding errors.</p>
@@ -108,15 +122,15 @@ computations, which can complete with a value or an error.</p>
     <section>
       <dl class="dl-horizontal">
 
-        <dt>Implements</dt>
+        <dt>Implemented types</dt>
         <dd>
           <ul class="comma-separated clazz-relationships">
-            <li><a href="dart-core/Sink-class.html">Sink</a><span class="signature">&lt;T&gt;</span></li>
+            <li><a href="dart-core/Sink-class.html">Sink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
           </ul>
         </dd>
 
 
-        <dt>Implemented by</dt>
+        <dt>Implementers</dt>
         <dd><ul class="comma-separated clazz-relationships">
           <li><a href="dart-async/StreamSink-class.html">StreamSink</a></li>
         </ul></dd>
@@ -143,19 +157,19 @@ computations, which can complete with a value or an error.</p>
       <dl class="properties">
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>         
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="dart-core/Object/hashCode.html">[...]</a>
-          <div class="features">read-only, inherited</div>
+                  <div class="features">read-only, inherited</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+          <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>         
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
-          <div class="features">read-only, inherited</div>
+                  <div class="features">read-only, inherited</div>
 </dd>
       </dl>
     </section>
@@ -167,46 +181,46 @@ computations, which can complete with a value or an error.</p>
           <span class="name"><a href="dart-async/EventSink/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Adds a data <code>event</code> to the sink. <a href="dart-async/EventSink/add.html">[...]</a>
-          
+                  <div class="features">override</div>
 </dd>
         <dt id="addError" class="callable">
           <span class="name"><a href="dart-async/EventSink/addError.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span> <span class="parameter" id="addError-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a></span> <span class="parameter-name">stackTrace</span></span> ])
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Adds an <code>error</code> to the sink. <a href="dart-async/EventSink/addError.html">[...]</a>
-          
+                  
 </dd>
         <dt id="close" class="callable">
           <span class="name"><a href="dart-async/EventSink/close.html">close</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Closes the sink. <a href="dart-async/EventSink/close.html">[...]</a>
-          
+                  <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
           <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+                  </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="dart-core/Object/noSuchMethod.html">[...]</a>
-          <div class="features">inherited</div>
+                  <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
           <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd class="inherited">
           Returns a string representation of this object.
-          <div class="features">inherited</div>
+                  <div class="features">inherited</div>
 </dd>
       </dl>
     </section>
@@ -218,10 +232,10 @@ computations, which can complete with a value or an error.</p>
           <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd class="inherited">
           The equality operator. <a href="dart-core/Object/operator_equals.html">[...]</a>
-          <div class="features">inherited</div>
+                  <div class="features">inherited</div>
 </dd>
       </dl>
     </section>
@@ -231,7 +245,7 @@ computations, which can complete with a value or an error.</p>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <ol>
       <li class="section-title"><a href="dart-async/EventSink-class.html#constructors">Constructors</a></li>
       <li><a href="dart-async/EventSink/EventSink.html">EventSink</a></li>
@@ -261,9 +275,10 @@ computations, which can complete with a value or an error.</p>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

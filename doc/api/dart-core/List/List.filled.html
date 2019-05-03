@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the List.filled constructor from the Class List class from the dart:core library, for the Dart programming language.">
   <title>List.filled constructor - List class - dart:core library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,7 +26,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-core/dart-core-library.html">dart:core</a></li>
-    <li><a href="dart-core/List-class.html">List<span class="signature">&lt;E&gt;</span></a></li>
+    <li><a href="dart-core/List-class.html">List<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
     <li class="self-crumb">List.filled factory constructor</li>
   </ol>
   <div class="self-name">List.filled</div>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-core/dart-core-library.html">dart:core</a></li>
+      <li><a href="dart-core/List-class.html">List<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
+      <li class="self-crumb">List.filled factory constructor</li>
+    </ol>
+    
     <h5>List class</h5>
     <ol>
       <li class="section-title"><a href="dart-core/List-class.html#constructors">Constructors</a></li>
@@ -82,7 +96,6 @@
       <li><a href="dart-core/List/removeWhere.html">removeWhere</a></li>
       <li><a href="dart-core/List/replaceRange.html">replaceRange</a></li>
       <li><a href="dart-core/List/retainWhere.html">retainWhere</a></li>
-      <li><a href="dart-core/List/retype.html">retype</a></li>
       <li><a href="dart-core/List/setAll.html">setAll</a></li>
       <li><a href="dart-core/List/setRange.html">setRange</a></li>
       <li><a href="dart-core/List/shuffle.html">shuffle</a></li>
@@ -128,33 +141,33 @@
     </ol>
   </div><!--/.sidebar-offcanvas-left-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>List&lt;E&gt;.filled constructor</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>List&lt;<wbr><span class="type-parameter">E</span>&gt;.filled constructor</h1></div>
 
     <section class="multi-line-signature">
       
-      <span class="name ">List&lt;E&gt;.filled</span>(<wbr><span class="parameter" id="filled-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span>, </span> <span class="parameter" id="filled-param-fill"><span class="type-annotation">E</span> <span class="parameter-name">fill</span>, {</span> <span class="parameter" id="filled-param-growable"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">growable</span>: <span class="default-value">false</span></span> })
+      <span class="name ">List&lt;<wbr><span class="type-parameter">E</span>&gt;.filled</span>(<wbr><span class="parameter" id="filled-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span>, </span> <span class="parameter" id="filled-param-fill"><span class="type-annotation">E</span> <span class="parameter-name">fill</span>, {</span> <span class="parameter" id="filled-param-growable"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">growable</span>: <span class="default-value">false</span></span> })
     </section>
 
     <section class="desc markdown">
-      <p>Creates a fixed-length list of the given length, and initializes the
-value at each position with <code>fill</code>:</p>
-<pre class="language-dart"><code>new List&lt;int&gt;.filled(3, 0); // [0, 0, 0]
-</code></pre>
+      <p>Creates a list of the given length with <code>fill</code> at each position.</p>
 <p>The <code>length</code> must be a non-negative integer.</p>
-<p>If the list is growable, changing its length will not initialize new
-entries with <code>fill</code>. After being created and filled, the list is
-no different from any other growable or fixed-length list
-created using <a href="dart-core/List-class.html">List</a>.</p>
-<p>All entries in the returned list point to the same provided <code>fill</code> value.
-That all items in the list are the same object is
-observable when the given value is a mutable object.</p>
+<p>Example:</p>
+<pre class="language-dart"><code class="language-dart">new List&lt;int&gt;.filled(3, 0, growable: true); // [0, 0, 0]
+</code></pre>
+<p>The created list is fixed-length if <code>growable</code> is false (the default)
+and growable if <code>growable</code> is true.
+If the list is growable, changing its length will not initialize new
+entries with <code>fill</code>.
+After being created and filled, the list is no different from any other
+growable or fixed-length list created using <a href="dart-core/List-class.html">List</a>.</p>
+<p>All elements of the returned list share the same <code>fill</code> value.</p>
 <pre class="language-dart"><code>var shared = new List.filled(3, []);
 shared[0].add(499);
 print(shared);  // =&gt; [[499], [499], [499]]
 </code></pre>
-<p>You may use <a href="dart-core/List/List.generate.html">List.generate</a> to create a new object for each position in
-in the list.</p>
+<p>You can use <a href="dart-core/List/List.generate.html">List.generate</a> to create a list with a new object at
+each position.</p>
 <pre class="language-dart"><code>var unique = new List.generate(3, (_) =&gt; []);
 unique[0].add(499);
 print(unique); // =&gt; [[499], [], []]
@@ -162,22 +175,23 @@ print(unique); // =&gt; [[499], [], []]
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">external factory List.filled(int length, E fill, {bool growable: false});</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

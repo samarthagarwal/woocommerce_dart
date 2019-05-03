@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the exitCode property from the Process class, for the Dart programming language.">
   <title>exitCode property - Process class - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-io/dart-io-library.html">dart:io</a></li>
+      <li><a href="dart-io/Process-class.html">Process</a></li>
+      <li class="self-crumb">exitCode property</li>
+    </ol>
+    
     <h5>Process class</h5>
     <ol>
       <li class="section-title"><a href="dart-io/Process-class.html#constructors">Constructors</a></li>
@@ -71,20 +85,20 @@
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>exitCode property</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>exitCode property</h1></div>
 
 
         <section id="getter">
         
         <section class="multi-line-signature">
-          <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
-          <span class="name ">exitCode</span>
-  
+          <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
+                  <span class="name ">exitCode</span>
+          
 </section>
         
-        <section class="desc markdown">
-  <p>Returns a <code>Future</code> which completes with the exit code of the process
+                <section class="desc markdown">
+          <p>Returns a <code>Future</code> which completes with the exit code of the process
 when the process completes.</p>
 <p>The handling of exit codes is platform specific.</p>
 <p>On Linux and OS X a normal exit code will be a positive value in
@@ -102,25 +116,30 @@ due to an access violation the 32-bit exit code is <code>0xc0000005</code>,
 which will be returned as the negative number <code>-1073741819</code>. To
 get the original 32-bit value use <code>(0x100000000 + exitCode) &amp;
 0xffffffff</code>.</p>
-</section>
-<section class="summary source-code" id="source">
-  <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; get exitCode;</code></pre>
-</section>
+<p>There is no guarantee that <a href="dart-io/Process/stdout.html">stdout</a> and <a href="dart-io/Process/stderr.html">stderr</a> have finished reporting
+the buffered output of the process when the returned future completes.
+To be sure that all output is captured,
+wait for the done event on the streams.</p>
+        </section>
+                <section class="summary source-code" id="source">
+          <h2><span>Implementation</span></h2>
+          <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; get exitCode;</code></pre>
+        </section>
 </section>
         
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

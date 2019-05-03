@@ -1,3 +1,6 @@
+## [0.0.8]
+* Fixed a bug where POST reuqest could not handle nested JSON data
+
 ## [0.0.7]
 * Fixed a bug for https websites where consumer_key and consumer_secret params are fixed
 

@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the strategy property from the ZLibEncoder class, for the Dart programming language.">
   <title>strategy property - ZLibEncoder class - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-io/dart-io-library.html">dart:io</a></li>
+      <li><a href="dart-io/ZLibEncoder-class.html">ZLibEncoder</a></li>
+      <li class="self-crumb">strategy property</li>
+    </ol>
+    
     <h5>ZLibEncoder class</h5>
     <ol>
       <li class="section-title"><a href="dart-io/ZLibEncoder-class.html#constructors">Constructors</a></li>
@@ -62,7 +76,6 @@
       <li class="inherited"><a href="dart-convert/Converter/cast.html">cast</a></li>
       <li class="inherited"><a href="dart-convert/Converter/fuse.html">fuse</a></li>
       <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="dart-convert/Converter/retype.html">retype</a></li>
       <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="dart-io/ZLibEncoder-class.html#operators">Operators</a></li>
@@ -73,8 +86,8 @@
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>strategy property</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>strategy property</h1></div>
 
         <section class="multi-line-signature">
           <span class="returntype"><a href="dart-core/int-class.html">int</a></span>
@@ -83,14 +96,14 @@
         </section>
         <section class="desc markdown">
           <p>Tunes the compression algorithm. Use the value
-<a href="dart-io/ZLibOption/STRATEGY_DEFAULT-constant.html">ZLibOption.STRATEGY_DEFAULT</a> for normal data,
-<a href="dart-io/ZLibOption/STRATEGY_FILTERED-constant.html">ZLibOption.STRATEGY_FILTERED</a> for data produced by a filter
-(or predictor), <a href="dart-io/ZLibOption/STRATEGY_HUFFMAN_ONLY-constant.html">ZLibOption.STRATEGY_HUFFMAN_ONLY</a> to force Huffman
-encoding only (no string match), or <a href="dart-io/ZLibOption/STRATEGY_RLE-constant.html">ZLibOption.STRATEGY_RLE</a> to limit
+<a href="dart-io/ZLibOption/strategyDefault-constant.html">ZLibOption.strategyDefault</a> for normal data,
+<a href="dart-io/ZLibOption/strategyFiltered-constant.html">ZLibOption.strategyFiltered</a> for data produced by a filter
+(or predictor), <a href="dart-io/ZLibOption/strategyHuffmanOnly-constant.html">ZLibOption.strategyHuffmanOnly</a> to force Huffman
+encoding only (no string match), or <a href="dart-io/ZLibOption/strategyRle-constant.html">ZLibOption.strategyRle</a> to limit
 match distances to one (run-length encoding).</p>
         </section>
                 <section class="summary source-code" id="source">
-          <h2><span>Implementation</span> </h2>
+          <h2><span>Implementation</span></h2>
           <pre class="language-dart"><code class="language-dart">final int strategy
 
 </code></pre>
@@ -98,16 +111,17 @@ match distances to one (run-length encoding).</p>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

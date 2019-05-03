@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the isEmpty property from the SplayTreeSet class, for the Dart programming language.">
   <title>isEmpty property - SplayTreeSet class - dart:collection library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,7 +26,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
-    <li><a href="dart-collection/SplayTreeSet-class.html">SplayTreeSet<span class="signature">&lt;E&gt;</span></a></li>
+    <li><a href="dart-collection/SplayTreeSet-class.html">SplayTreeSet<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
     <li class="self-crumb">isEmpty property</li>
   </ol>
   <div class="self-name">isEmpty</div>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
+      <li><a href="dart-collection/SplayTreeSet-class.html">SplayTreeSet<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></a></li>
+      <li class="self-crumb">isEmpty property</li>
+    </ol>
+    
     <h5>SplayTreeSet class</h5>
     <ol>
       <li class="section-title"><a href="dart-collection/SplayTreeSet-class.html#constructors">Constructors</a></li>
@@ -69,7 +83,6 @@
       <li><a href="dart-collection/SplayTreeSet/remove.html">remove</a></li>
       <li><a href="dart-collection/SplayTreeSet/removeAll.html">removeAll</a></li>
       <li><a href="dart-collection/SplayTreeSet/retainAll.html">retainAll</a></li>
-      <li><a href="dart-collection/SplayTreeSet/retype.html">retype</a></li>
       <li><a href="dart-collection/SplayTreeSet/toSet.html">toSet</a></li>
       <li><a href="dart-collection/SplayTreeSet/toString.html">toString</a></li>
       <li><a href="dart-collection/SplayTreeSet/union.html">union</a></li>
@@ -106,36 +119,41 @@
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>isEmpty property</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>isEmpty property</h1></div>
 
 
         <section id="getter">
         
         <section class="multi-line-signature">
           <span class="returntype"><a href="dart-core/bool-class.html">bool</a></span>
-          <span class="name ">isEmpty</span>
-  
+                  <span class="name ">isEmpty</span>
+          <div class="features">override</div>
 </section>
         
-        <section class="summary source-code" id="source">
-  <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">bool get isEmpty =&gt; _root == null;</code></pre>
-</section>
+                <section class="desc markdown">
+          <p>Returns <code>true</code> if there are no elements in this collection.</p>
+<p>May be computed by checking if <code>iterator.moveNext()</code> returns <code>false</code>.</p>
+        </section>
+                <section class="summary source-code" id="source">
+          <h2><span>Implementation</span></h2>
+          <pre class="language-dart"><code class="language-dart">bool get isEmpty =&gt; _root == null;</code></pre>
+        </section>
 </section>
         
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -43,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     /// Initialize the API
     WooCommerceAPI wc_api = new WooCommerceAPI(
-        "http://samarth.todaylivedeal.com",
-        "ck_2b548f9652a3468f67bbc5bdb04e48edf270a000",
-        "cs_fa349f1ba49b519ba9493eb2b64c88781b286b52"
+        "https://www.yourwebsite.com",
+        "ck_your_consumer_key",
+        "cs_your_consumer_secret"
     );
     
     /// Get data using the endpoint
@@ -98,5 +98,27 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 ```
+
+### Example of making a POST (Create a customer)
+```
+Future createCustomer() async {
+  try {
+    var response = await wooCommerceAPI.postAsync(
+      "customers",
+      {
+        "email": 's@c.com',
+        "password": "123",
+        "billing": {
+          "first_name": "Samarth",
+        }
+      },
+    );
+    print(response); // JSON Object with response
+  } catch (e) {
+    print(e);
+  }
+}
+```
+
 ### Report any issues if you face any or drop me an email at samarthagarwal@live.com
 

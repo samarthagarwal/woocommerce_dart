@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the Symbol constructor from the Class Symbol class from the dart:core library, for the Dart programming language.">
   <title>Symbol constructor - Symbol class - dart:core library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-core/dart-core-library.html">dart:core</a></li>
+      <li><a href="dart-core/Symbol-class.html">Symbol</a></li>
+      <li class="self-crumb">Symbol const constructor</li>
+    </ol>
+    
     <h5>Symbol class</h5>
     <ol>
       <li class="section-title"><a href="dart-core/Symbol-class.html#constructors">Constructors</a></li>
@@ -63,8 +77,8 @@
     </ol>
   </div><!--/.sidebar-offcanvas-left-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>Symbol constructor</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>Symbol constructor</h1></div>
 
     <section class="multi-line-signature">
       const
@@ -72,7 +86,7 @@
     </section>
 
     <section class="desc markdown">
-      <p>Constructs a new Symbol.</p>
+      <p>Constructs a new <a href="dart-core/Symbol-class.html">Symbol</a> representing the provided name.</p>
 <p>The name must be a valid public Dart member name,
 public constructor name, or library name, optionally qualified.</p>
 <p>A qualified name is a valid name preceded by a public identifier name
@@ -84,6 +98,30 @@ That means that the content of the <code>name</code> String must be either</p><u
 "<code>[]</code>", "<code>[]=</code>", or "<code>unary-</code>"),</li><li>any of the above preceded by any number of qualifiers,
 where a qualifier is a non-private identifier followed by '<code>.</code>',</li><li>or the empty string (the default name of a library with no library
 name declaration).</li></ul>
+<p>Symbol instances created from the same <code>name</code> are equal,
+but not necessarily identical, but symbols created as compile-time
+constants are canonicalized, as all other constant object creations.</p>
+<pre class="language-dart"><code class="language-dart">assert(new Symbol("foo") == new Symbol("foo"));
+assert(identical(const Symbol("foo"), const Symbol("foo")));
+</code></pre>
+<p>If <code>name</code> is a single identifier that does not start with an underscore,
+or it is a qualified identifier,
+or it is an operator name different from <code>unary-</code>,
+then the result of <code>const Symbol(name)</code> is the same instance that
+the symbol literal created by prefixing <code>#</code> to the content of <code>name</code>
+would evaluate to.</p>
+<pre class="language-dart"><code class="language-dart">assert(new Symbol("foo") == #foo);
+assert(new Symbol("[]=") == #[]=]);
+assert(new Symbol("foo.bar") == #foo.bar);
+assert(identical(const Symbol("foo"), #foo));
+assert(identical(const Symbol("[]="), #[]=]));
+assert(identical(const Symbol("foo.bar"), #foo.bar));
+</code></pre>
+<p>This constructor cannot create a <a href="dart-core/Symbol-class.html">Symbol</a> instance that is equal to
+a private symbol literal like <code>#_foo</code>.</p>
+<pre class="language-dart"><code class="language-dart">const Symbol("_foo") // Invalid
+</code></pre>
+<p>The created instance overrides <a href="dart-core/Symbol/operator_equals.html">Object.==</a>.</p>
 <p>The following text is non-normative:</p>
 <p>Creating non-const Symbol instances may result in larger output.  If
 possible, use <code>MirrorsUsed</code> from "dart:mirrors" to specify which names
@@ -91,22 +129,23 @@ might be passed to this constructor.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">const factory Symbol(String name) = internal.Symbol;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

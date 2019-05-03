@@ -3,6 +3,7 @@ library woocommerce_api;
 import 'dart:async';
 import "dart:collection";
 import 'dart:convert';
+import 'dart:io';
 import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
@@ -131,21 +132,25 @@ class WooCommerceAPI {
   }
 
   Future<dynamic> getAsync(String endPoint) async {
-
     var url = this._getOAuthURL("GET", endPoint);
 
     final response = await http.get(url);
 
     return json.decode(response.body);
-     
   }
 
-  Future<dynamic> postAsync(String endPoint, Object data) async {
-
+  Future<dynamic> postAsync(String endPoint, Map data) async {
     var url = this._getOAuthURL("POST", endPoint);
 
-    final response = await http.post(url, body: data);
-
-    return json.decode(response.body); 
+    var client = new http.Client();
+    var request = new http.Request('POST', Uri.parse(url));
+    request.headers[HttpHeaders.contentTypeHeader] =
+        'application/json; charset=utf-8';
+    request.headers[HttpHeaders.cacheControlHeader] = "no-cache";
+    request.body = json.encode(data);
+    var response =
+        await client.send(request).then((res) => res.stream.bytesToString());
+    var dataResponse = await json.decode(response);
+    return dataResponse;
   }
 }

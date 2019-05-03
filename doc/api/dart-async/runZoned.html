@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the runZoned function from the dart:async library, for the Dart programming language.">
   <title>runZoned function - dart:async library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,7 +26,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
-    <li class="self-crumb">runZoned&lt;R&gt; function</li>
+    <li class="self-crumb">runZoned&lt;<wbr><span class="type-parameter">R</span>&gt; function</li>
   </ol>
   <div class="self-name">runZoned</div>
   <form class="search navbar-right" role="search">
@@ -35,7 +36,19 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
+      <li class="self-crumb">runZoned&lt;<wbr><span class="type-parameter">R</span>&gt; function</li>
+    </ol>
+    
     <h5>dart:async library</h5>
     <ol>
       <li class="section-title"><a href="dart-async/dart-async-library.html#classes">Classes</a></li>
@@ -58,6 +71,7 @@
       <li><a href="dart-async/Zone-class.html">Zone</a></li>
       <li><a href="dart-async/ZoneDelegate-class.html">ZoneDelegate</a></li>
       <li><a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a></li>
+    
     
     
     
@@ -93,31 +107,36 @@
     </ol>
   </div><!--/.sidebar-offcanvas-left-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>runZoned&lt;R&gt; function</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>runZoned&lt;<wbr><span class="type-parameter">R</span>&gt; function </h1></div>
 
     <section class="multi-line-signature">
         <span class="returntype">R</span>
-        <span class="name ">runZoned</span>
-&lt;R&gt;(<wbr><span class="parameter" id="runZoned-param-body"><span class="type-annotation">R</span> <span class="parameter-name">body</span>(), {</span> <span class="parameter" id="runZoned-param-zoneValues"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a></span> <span class="parameter-name">zoneValues</span>, </span> <span class="parameter" id="runZoned-param-zoneSpecification"><span class="type-annotation"><a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a></span> <span class="parameter-name">zoneSpecification</span>, </span> <span class="parameter" id="runZoned-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">onError</span></span> })
+                <span class="name ">runZoned</span>
+&lt;<wbr><span class="type-parameter">R</span>&gt;(<wbr><span class="parameter" id="runZoned-param-body"><span class="type-annotation">R</span> <span class="parameter-name">body</span>(), {</span> <span class="parameter" id="runZoned-param-zoneValues"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a></span> <span class="parameter-name">zoneValues</span>, </span> <span class="parameter" id="runZoned-param-zoneSpecification"><span class="type-annotation"><a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a></span> <span class="parameter-name">zoneSpecification</span>, </span> <span class="parameter" id="runZoned-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">onError</span></span> })
     </section>
     <section class="desc markdown">
       <p>Runs <code>body</code> in its own zone.</p>
-<p>Returns the result of invoking <code>body</code>.</p>
-<p>If <code>onError</code> is non-null the zone is considered an error zone. All uncaught
-errors, synchronous or asynchronous, in the zone are caught and handled
-by the callback. When the error is synchronous, throwing in the <code>onError</code>
-handler, leads to a synchronous exception.</p>
-<p>Returns <code>null</code> when <code>body</code> threw, and a provided <code>onError</code> function completed
-without throwing.</p>
-<p>Errors may never cross error-zone boundaries. This is intuitive for leaving
-a zone, but it also applies for errors that would enter an error-zone.
-Errors that try to cross error-zone boundaries are considered uncaught.</p>
+<p>Creates a new zone using <a href="dart-async/Zone/fork.html">Zone.fork</a> based on <code>zoneSpecification</code> and
+<code>zoneValues</code>, then runs <code>body</code> in that zone and returns the result.</p>
+<p>If <code>onError</code> is provided, it must have one of the types</p><ul><li><code>void Function(Object)</code></li><li><code>void Function(Object, StackTrace)</code>
+and the <code>onError</code> handler is used <em>both</em> to handle asynchronous errors
+by overriding <a href="dart-async/ZoneSpecification/handleUncaughtError.html">ZoneSpecification.handleUncaughtError</a> in <code>zoneSpecification</code>,
+if any, <em>and</em> to handle errors thrown synchronously by the call to <code>body</code>.</li></ul>
+<p>If an error occurs synchronously in <code>body</code>,
+then throwing in the <code>onError</code> handler
+makes the call to <code>runZone</code> throw that error,
+and otherwise the call to <code>runZoned</code> returns <code>null</code>.</p>
+<p>If the zone specification has a <code>handleUncaughtError</code> value or the <code>onError</code>
+parameter is provided, the zone becomes an error-zone.</p>
+<p>Errors will never cross error-zone boundaries by themselves.
+Errors that try to cross error-zone boundaries are considered uncaught in
+their originating error zone.</p>
 <pre class="language-dart"><code>var future = new Future.value(499);
 runZoned(() {
-  future = future.then((_) { throw "error in first error-zone"; });
+  var future2 = future.then((_) { throw "error in first error-zone"; });
   runZoned(() {
-    future = future.catchError((e) { print("Never reached!"); });
+    var future3 = future2.catchError((e) { print("Never reached!"); });
   }, onError: (e) { print("unused error handler"); });
 }, onError: (e) { print("catches error of first error-zone."); });
 </code></pre>
@@ -126,78 +145,79 @@ runZoned(() {
   new Future(() { throw "asynchronous error"; });
 }, onError: print);  // Will print "asynchronous error".
 </code></pre>
+<p>It is possible to manually pass an error from one error zone to another
+by re-throwing it in the new zone. If <code>onError</code> throws, that error will
+occur in the original zone where <a href="dart-async/runZoned.html">runZoned</a> was called.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">R runZoned&lt;R&gt;(R body(),
     {Map zoneValues, ZoneSpecification zoneSpecification, Function onError}) {
-  &#47;&#47; TODO(floitsch): the return type should be `void` here.
-  if (onError != null &amp;&amp;
-      onError is! ZoneBinaryCallback&lt;dynamic, Object, StackTrace&gt; &amp;&amp;
-      onError is! ZoneUnaryCallback&lt;dynamic, Object&gt;) {
-    throw new ArgumentError(&quot;onError callback must take an Object (the error), &quot;
-        &quot;or an Object (the error) and a StackTrace&quot;);
+  if (onError == null) {
+    return _runZoned&lt;R&gt;(body, zoneValues, zoneSpecification);
   }
-  HandleUncaughtErrorHandler errorHandler;
-  if (onError != null) {
-    errorHandler = (Zone self, ZoneDelegate parent, Zone zone, error,
-        StackTrace stackTrace) {
-      try {
-        if (onError is void Function(Object, StackTrace)) {
-          self.parent.runBinary(onError, error, stackTrace);
-          return;
-        }
-        assert(onError is void Function(Object));
-        self.parent.runUnary(onError, error);
-      } catch (e, s) {
-        if (identical(e, error)) {
-          parent.handleUncaughtError(zone, error, stackTrace);
-        } else {
-          parent.handleUncaughtError(zone, e, s);
-        }
+  void Function(Object) unaryOnError;
+  void Function(Object, StackTrace) binaryOnError;
+  if (onError is void Function(Object, StackTrace)) {
+    binaryOnError = onError;
+  } else if (onError is void Function(Object)) {
+    unaryOnError = onError;
+  } else {
+    throw new ArgumentError(&quot;onError callback must take either an Object &quot;
+        &quot;(the error), or both an Object (the error) and a StackTrace.&quot;);
+  }
+  HandleUncaughtErrorHandler errorHandler = (Zone self, ZoneDelegate parent,
+      Zone zone, error, StackTrace stackTrace) {
+    try {
+      if (binaryOnError != null) {
+        self.parent.runBinary(binaryOnError, error, stackTrace);
+      } else {
+        assert(unaryOnError != null);
+        self.parent.runUnary(unaryOnError, error);
       }
-    };
-  }
+    } catch (e, s) {
+      if (identical(e, error)) {
+        parent.handleUncaughtError(zone, error, stackTrace);
+      } else {
+        parent.handleUncaughtError(zone, e, s);
+      }
+    }
+  };
   if (zoneSpecification == null) {
     zoneSpecification =
         new ZoneSpecification(handleUncaughtError: errorHandler);
-  } else if (errorHandler != null) {
+  } else {
     zoneSpecification = new ZoneSpecification.from(zoneSpecification,
         handleUncaughtError: errorHandler);
   }
-  Zone zone = Zone.current
-      .fork(specification: zoneSpecification, zoneValues: zoneValues);
-  if (onError != null) {
-    try {
-      return zone.run(body);
-    } catch (e, stackTrace) {
-      if (onError is ZoneBinaryCallback&lt;R, Object, StackTrace&gt;) {
-        zone.runBinary(onError, e, stackTrace);
-        return null;
-      }
-      assert(onError is ZoneUnaryCallback&lt;R, Object&gt;);
-      zone.runUnary(onError, e);
-      return null;
+  try {
+    return _runZoned&lt;R&gt;(body, zoneValues, zoneSpecification);
+  } catch (e, stackTrace) {
+    if (binaryOnError != null) {
+      binaryOnError(e, stackTrace);
+    } else {
+      assert(unaryOnError != null);
+      unaryOnError(e);
     }
-  } else {
-    return zone.run(body);
   }
+  return null;
 }</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

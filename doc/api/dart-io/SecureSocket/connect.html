@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the connect method from the SecureSocket class, for the Dart programming language.">
   <title>connect method - SecureSocket class - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-io/dart-io-library.html">dart:io</a></li>
+      <li><a href="dart-io/SecureSocket-class.html">SecureSocket</a></li>
+      <li class="self-crumb">connect method</li>
+    </ol>
+    
     <h5>SecureSocket class</h5>
     <ol>
     
@@ -82,6 +96,7 @@
       <li class="inherited"><a href="dart-io/IOSink/flush.html">flush</a></li>
       <li class="inherited"><a href="dart-async/Stream/fold.html">fold</a></li>
       <li class="inherited"><a href="dart-async/Stream/forEach.html">forEach</a></li>
+      <li class="inherited"><a href="dart-io/Socket/getRawOption.html">getRawOption</a></li>
       <li class="inherited"><a href="dart-async/Stream/handleError.html">handleError</a></li>
       <li class="inherited"><a href="dart-async/Stream/join.html">join</a></li>
       <li class="inherited"><a href="dart-async/Stream/lastWhere.html">lastWhere</a></li>
@@ -90,8 +105,8 @@
       <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="dart-async/Stream/pipe.html">pipe</a></li>
       <li class="inherited"><a href="dart-async/Stream/reduce.html">reduce</a></li>
-      <li class="inherited"><a href="dart-async/Stream/retype.html">retype</a></li>
       <li class="inherited"><a href="dart-io/Socket/setOption.html">setOption</a></li>
+      <li class="inherited"><a href="dart-io/Socket/setRawOption.html">setRawOption</a></li>
       <li class="inherited"><a href="dart-async/Stream/singleWhere.html">singleWhere</a></li>
       <li class="inherited"><a href="dart-async/Stream/skip.html">skip</a></li>
       <li class="inherited"><a href="dart-async/Stream/skipWhile.html">skipWhile</a></li>
@@ -116,17 +131,19 @@
       <li><a href="dart-io/SecureSocket/connect.html">connect</a></li>
       <li><a href="dart-io/SecureSocket/secure.html">secure</a></li>
       <li><a href="dart-io/SecureSocket/secureServer.html">secureServer</a></li>
+      <li><a href="dart-io/SecureSocket/startConnect.html">startConnect</a></li>
     
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>connect method</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>connect method</h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/SecureSocket-class.html">SecureSocket</a>&gt;</span></span>
-      <span class="name ">connect</span>
-(<wbr><span class="parameter" id="connect-param-host"><span class="type-annotation">dynamic</span> <span class="parameter-name">host</span>, </span> <span class="parameter" id="connect-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, {</span> <span class="parameter" id="connect-param-context"><span class="type-annotation"><a href="dart-io/SecurityContext-class.html">SecurityContext</a></span> <span class="parameter-name">context</span>, </span> <span class="parameter" id="connect-param-onBadCertificate"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onBadCertificate</span>(<span class="parameter" id="onBadCertificate-param-certificate"><span class="type-annotation"><a href="dart-io/X509Certificate-class.html">X509Certificate</a></span> <span class="parameter-name">certificate</span></span>), </span> <span class="parameter" id="connect-param-supportedProtocols"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/String-class.html">String</a>&gt;</span></span> <span class="parameter-name">supportedProtocols</span>, </span> <span class="parameter" id="connect-param-timeout"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">timeout</span></span> })
+      <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/SecureSocket-class.html">SecureSocket</a></span>&gt;</span></span>
+            <span class="name ">connect</span>
+(<wbr><span class="parameter" id="connect-param-host"><span class="type-annotation">dynamic</span> <span class="parameter-name">host</span>, </span> <span class="parameter" id="connect-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, {</span> <span class="parameter" id="connect-param-context"><span class="type-annotation"><a href="dart-io/SecurityContext-class.html">SecurityContext</a></span> <span class="parameter-name">context</span>, </span> <span class="parameter" id="connect-param-onBadCertificate"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onBadCertificate</span>(<span class="parameter" id="onBadCertificate-param-certificate"><span class="type-annotation"><a href="dart-io/X509Certificate-class.html">X509Certificate</a></span> <span class="parameter-name">certificate</span></span>), </span> <span class="parameter" id="connect-param-supportedProtocols"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">supportedProtocols</span>, </span> <span class="parameter" id="connect-param-timeout"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">timeout</span></span> })
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
       <p>Constructs a new secure client socket and connects it to the given
@@ -153,14 +170,13 @@ connection attempts to <code>host</code> are cancelled.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">static Future&lt;SecureSocket&gt; connect(host, int port,
     {SecurityContext context,
     bool onBadCertificate(X509Certificate certificate),
     List&lt;String&gt; supportedProtocols,
     Duration timeout}) {
-  return RawSecureSocket
-      .connect(host, port,
+  return RawSecureSocket.connect(host, port,
           context: context,
           onBadCertificate: onBadCertificate,
           supportedProtocols: supportedProtocols,
@@ -171,16 +187,17 @@ connection attempts to <code>host</code> are cancelled.</p>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

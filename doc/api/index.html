@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="made with love by dartdoc 0.20.1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.28.1+2">
   <meta name="description" content="woocommerce_api API docs, for the Dart programming language.">
   <title>woocommerce_api - Dart API docs</title>
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -20,6 +21,7 @@
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="https://github.com/samarthagarwal/woocommerce_dart">woocommerce_api package</a></li>
   </ol>
@@ -31,20 +33,44 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5><span class="package-name">woocommerce_api</span> <span class="package-kind">package</span></h5>
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="https://github.com/samarthagarwal/woocommerce_dart">woocommerce_api package</a></li>
+    </ol>
+    
+    <h5 class="hidden-xs"><span class="package-name">woocommerce_api</span> <span class="package-kind">package</span></h5>
     <ol>
           <li class="section-title">Libraries</li>
           <li><a href="query_string/query_string-library.html">query_string</a></li>
           <li><a href="woocommerce_api/woocommerce_api-library.html">woocommerce_api</a></li>
+          <li class="section-title">Dart</li>
+          <li><a href="dart-ui/dart-ui-library.html">dart:ui</a></li>
+          <li class="section-subtitle">Core</li>
+            <li class="section-subitem"><a href="dart-async/dart-async-library.html">dart:async</a></li>
+            <li class="section-subitem"><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
+            <li class="section-subitem"><a href="dart-convert/dart-convert-library.html">dart:convert</a></li>
+            <li class="section-subitem"><a href="dart-core/dart-core-library.html">dart:core</a></li>
+            <li class="section-subitem"><a href="dart-developer/dart-developer-library.html">dart:developer</a></li>
+            <li class="section-subitem"><a href="dart-math/dart-math-library.html">dart:math</a></li>
+            <li class="section-subitem"><a href="dart-typed_data/dart-typed_data-library.html">dart:typed_data</a></li>
+          <li class="section-subtitle">VM</li>
+            <li class="section-subitem"><a href="dart-io/dart-io-library.html">dart:io</a></li>
+            <li class="section-subitem"><a href="dart-isolate/dart-isolate-library.html">dart:isolate</a></li>
     </ol>
   </div>
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
       <section class="desc markdown">
-        <h1>woocommerce_api</h1>
+        <h1 id="woocommerce-sdk-for-dart">WooCommerce SDK for Dart</h1>
 <p>A dart package to interact with the WooCommerce API. It uses OAuth1.0a behind the scenes to generate the signature and URL string. It then makes calls and return the data back to the calling function.</p>
-<h2>Complete Usage Example</h2>
+<p><img alt="Example code and preview" src="Screenshot.png"></p>
+<h2 id="complete-usage-example">Complete Usage Example</h2>
 <pre class="language-dart"><code>import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -82,9 +108,9 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
 
     /// Initialize the API
     WooCommerceAPI wc_api = new WooCommerceAPI(
-        "http://samarth.todaylivedeal.com",
-        "ck_2b548f9652a3468f67bbc5bdb04e48edf270a000",
-        "cs_fa349f1ba49b519ba9493eb2b64c88781b286b52"
+        "https://www.yourwebsite.com",
+        "ck_your_consumer_key",
+        "cs_your_consumer_secret"
     );
     
     /// Get data using the endpoint
@@ -137,35 +163,121 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
 }
 
 </code></pre>
-<h2>Output</h2>
-<p><img alt="Example code's output" src="Screenshot.jpg"></p>
+<h3 id="example-of-making-a-post-create-a-customer">Example of making a POST (Create a customer)</h3>
+<pre class="language-dart"><code>Future createCustomer() async {
+  try {
+    var response = await wooCommerceAPI.postAsync(
+      "customers",
+      {
+        "email": 's@c.com',
+        "password": "123",
+        "billing": {
+          "first_name": "Samarth",
+        }
+      },
+    );
+    print(response); // JSON Object with response
+  } catch (e) {
+    print(e);
+  }
+}
+</code></pre>
+<h3 id="report-any-issues-if-you-face-any-or-drop-me-an-email-at-samarthagarwallivecom">Report any issues if you face any or drop me an email at samarthagarwal@live.com</h3>
       </section>
       
         <section class="summary">
             <h2>Libraries</h2>
           <dl>
             <dt id="query_string">
-              <span class="name"><a href="query_string/query_string-library.html">query_string</a></span>
+              <span class="name"><a href="query_string/query_string-library.html">query_string</a></span>             
             </dt>
             <dd>
               
             </dd>            <dt id="woocommerce_api">
-              <span class="name"><a href="woocommerce_api/woocommerce_api-library.html">woocommerce_api</a></span>
+              <span class="name"><a href="woocommerce_api/woocommerce_api-library.html">woocommerce_api</a></span>             
             </dt>
             <dd>
               
             </dd>          </dl>
         </section>
+        <section class="summary">
+            <h2>Dart</h2>
+          <dl>
+            <dt id="dart:ui">
+              <span class="name"><a href="dart-ui/dart-ui-library.html">dart:ui</a></span>             
+            </dt>
+            <dd>
+              Built-in types and core primitives for a Flutter application. <a href="dart-ui/dart-ui-library.html">[...]</a>
+            </dd>            <h3>Core</h3>
+              <dt id="dart:async">
+                <span class="name"><a href="dart-async/dart-async-library.html">dart:async</a></span>               
+              </dt>
+              <dd>
+                Support for asynchronous programming,
+with classes such as Future and Stream. <a href="dart-async/dart-async-library.html">[...]</a>
+              </dd>              <dt id="dart:collection">
+                <span class="name"><a href="dart-collection/dart-collection-library.html">dart:collection</a></span>               
+              </dt>
+              <dd>
+                Classes and utilities that supplement the collection support in dart:core. <a href="dart-collection/dart-collection-library.html">[...]</a>
+              </dd>              <dt id="dart:convert">
+                <span class="name"><a href="dart-convert/dart-convert-library.html">dart:convert</a></span>               
+              </dt>
+              <dd>
+                Encoders and decoders for converting between different data representations,
+including JSON and UTF-8. <a href="dart-convert/dart-convert-library.html">[...]</a>
+              </dd>              <dt id="dart:core">
+                <span class="name"><a href="dart-core/dart-core-library.html">dart:core</a></span>               
+              </dt>
+              <dd>
+                Built-in types, collections,
+and other core functionality for every Dart program. <a href="dart-core/dart-core-library.html">[...]</a>
+              </dd>              <dt id="dart:developer">
+                <span class="name"><a href="dart-developer/dart-developer-library.html">dart:developer</a></span>               
+              </dt>
+              <dd>
+                Interact with developer tools such as the debugger and inspector. <a href="dart-developer/dart-developer-library.html">[...]</a>
+              </dd>              <dt id="dart:math">
+                <span class="name"><a href="dart-math/dart-math-library.html">dart:math</a></span>               
+              </dt>
+              <dd>
+                Mathematical constants and functions, plus a random number generator. <a href="dart-math/dart-math-library.html">[...]</a>
+              </dd>              <dt id="dart:typed_data">
+                <span class="name"><a href="dart-typed_data/dart-typed_data-library.html">dart:typed_data</a></span>               
+              </dt>
+              <dd>
+                Lists that efficiently handle fixed sized data
+(for example, unsigned 8 byte integers) and SIMD numeric types. <a href="dart-typed_data/dart-typed_data-library.html">[...]</a>
+              </dd>            <h3>VM</h3>
+              <dt id="dart:io">
+                <span class="name"><a href="dart-io/dart-io-library.html">dart:io</a></span>               
+              </dt>
+              <dd>
+                File, socket, HTTP, and other I/O support for non-web applications. <a href="dart-io/dart-io-library.html">[...]</a>
+              </dd>              <dt id="dart:isolate">
+                <span class="name"><a href="dart-isolate/dart-isolate-library.html">dart:isolate</a></span>               
+              </dt>
+              <dd>
+                Concurrent programming using <em>isolates</em>:
+independent workers that are similar to threads
+but don't share memory,
+communicating only via messages. <a href="dart-isolate/dart-isolate-library.html">[...]</a>
+              </dd>          </dl>
+        </section>
 
   </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div>
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.6
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

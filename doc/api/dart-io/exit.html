@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the exit function from the dart:io library, for the Dart programming language.">
   <title>exit function - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -35,18 +36,32 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-io/dart-io-library.html">dart:io</a></li>
+      <li class="self-crumb">exit function</li>
+    </ol>
+    
     <h5>dart:io library</h5>
     <ol>
       <li class="section-title"><a href="dart-io/dart-io-library.html#classes">Classes</a></li>
       <li><a href="dart-io/BytesBuilder-class.html">BytesBuilder</a></li>
       <li><a href="dart-io/CompressionOptions-class.html">CompressionOptions</a></li>
+      <li><a href="dart-io/ConnectionTask-class.html">ConnectionTask</a></li>
       <li><a href="dart-io/ContentType-class.html">ContentType</a></li>
       <li><a href="dart-io/Cookie-class.html">Cookie</a></li>
       <li><a href="dart-io/Datagram-class.html">Datagram</a></li>
       <li><a href="dart-io/DetachedSocket-class.html">DetachedSocket</a></li>
       <li><a href="dart-io/Directory-class.html">Directory</a></li>
       <li><a href="dart-io/File-class.html">File</a></li>
+      <li><a href="dart-io/FileLock-class.html">FileLock</a></li>
       <li><a href="dart-io/FileMode-class.html">FileMode</a></li>
       <li><a href="dart-io/FileStat-class.html">FileStat</a></li>
       <li><a href="dart-io/FileSystemCreateEvent-class.html">FileSystemCreateEvent</a></li>
@@ -86,6 +101,7 @@
       <li><a href="dart-io/ProcessInfo-class.html">ProcessInfo</a></li>
       <li><a href="dart-io/ProcessResult-class.html">ProcessResult</a></li>
       <li><a href="dart-io/ProcessSignal-class.html">ProcessSignal</a></li>
+      <li><a href="dart-io/ProcessStartMode-class.html">ProcessStartMode</a></li>
       <li><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></li>
       <li><a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a></li>
       <li><a href="dart-io/RawSecureServerSocket-class.html">RawSecureServerSocket</a></li>
@@ -93,6 +109,7 @@
       <li><a href="dart-io/RawServerSocket-class.html">RawServerSocket</a></li>
       <li><a href="dart-io/RawSocket-class.html">RawSocket</a></li>
       <li><a href="dart-io/RawSocketEvent-class.html">RawSocketEvent</a></li>
+      <li><a href="dart-io/RawSocketOption-class.html">RawSocketOption</a></li>
       <li><a href="dart-io/RawSynchronousSocket-class.html">RawSynchronousSocket</a></li>
       <li><a href="dart-io/RawZLibFilter-class.html">RawZLibFilter</a></li>
       <li><a href="dart-io/RedirectInfo-class.html">RedirectInfo</a></li>
@@ -116,15 +133,19 @@
       <li><a href="dart-io/ZLibEncoder-class.html">ZLibEncoder</a></li>
       <li><a href="dart-io/ZLibOption-class.html">ZLibOption</a></li>
     
+    
       <li class="section-title"><a href="dart-io/dart-io-library.html#constants">Constants</a></li>
-      <li><a href="dart-io/APPEND-constant.html">APPEND</a></li>
-      <li><a href="dart-io/GZIP-constant.html">GZIP</a></li>
-      <li><a href="dart-io/READ-constant.html">READ</a></li>
-      <li><a href="dart-io/SYSTEM_ENCODING-constant.html">SYSTEM_ENCODING</a></li>
-      <li><a href="dart-io/WRITE-constant.html">WRITE</a></li>
-      <li><a href="dart-io/WRITE_ONLY-constant.html">WRITE_ONLY</a></li>
-      <li><a href="dart-io/WRITE_ONLY_APPEND-constant.html">WRITE_ONLY_APPEND</a></li>
-      <li><a href="dart-io/ZLIB-constant.html">ZLIB</a></li>
+      <li><a class="deprecated" href="dart-io/APPEND-constant.html">APPEND</a></li>
+      <li><a class="deprecated" href="dart-io/GZIP-constant.html">GZIP</a></li>
+      <li><a href="dart-io/gzip-constant.html">gzip</a></li>
+      <li><a class="deprecated" href="dart-io/READ-constant.html">READ</a></li>
+      <li><a class="deprecated" href="dart-io/SYSTEM_ENCODING-constant.html">SYSTEM_ENCODING</a></li>
+      <li><a href="dart-io/systemEncoding-constant.html">systemEncoding</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE-constant.html">WRITE</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE_ONLY-constant.html">WRITE_ONLY</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE_ONLY_APPEND-constant.html">WRITE_ONLY_APPEND</a></li>
+      <li><a class="deprecated" href="dart-io/ZLIB-constant.html">ZLIB</a></li>
+      <li><a href="dart-io/zlib-constant.html">zlib</a></li>
     
       <li class="section-title"><a href="dart-io/dart-io-library.html#properties">Properties</a></li>
       <li><a href="dart-io/exitCode.html">exitCode</a></li>
@@ -138,9 +159,6 @@
       <li><a href="dart-io/sleep.html">sleep</a></li>
       <li><a href="dart-io/stdioType.html">stdioType</a></li>
     
-      <li class="section-title"><a href="dart-io/dart-io-library.html#enums">Enums</a></li>
-      <li><a href="dart-io/FileLock-class.html">FileLock</a></li>
-      <li><a href="dart-io/ProcessStartMode-class.html">ProcessStartMode</a></li>
     
       <li class="section-title"><a href="dart-io/dart-io-library.html#typedefs">Typedefs</a></li>
       <li><a href="dart-io/BadCertificateCallback.html">BadCertificateCallback</a></li>
@@ -162,18 +180,24 @@
     </ol>
   </div><!--/.sidebar-offcanvas-left-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>exit function</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>exit function </h1></div>
 
     <section class="multi-line-signature">
         <span class="returntype">void</span>
-        <span class="name ">exit</span>
+                <span class="name ">exit</span>
 (<wbr><span class="parameter" id="exit-param-code"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">code</span></span>)
     </section>
     <section class="desc markdown">
       <p>Exit the Dart VM process immediately with the given exit code.</p>
 <p>This does not wait for any asynchronous operations to terminate. Using
 <a href="dart-io/exit.html">exit</a> is therefore very likely to lose data.</p>
+<p>While debugging, the VM will not respect the <code>--pause-isolates-on-exit</code>
+flag if <a href="dart-io/exit.html">exit</a> is called as invoking this method causes the Dart VM
+process to shutdown immediately. To properly break on exit, consider
+calling <a href="dart-developer/debugger.html">debugger</a> from <code>dart:developer</code> or <a href="dart-isolate/Isolate/pause.html">Isolate.pause</a> from
+<code>dart:isolate</code> on <a href="dart-isolate/Isolate/current.html">Isolate.current</a> to pause the isolate before
+invoking <a href="dart-io/exit.html">exit</a>.</p>
 <p>The handling of exit codes is platform specific.</p>
 <p>On Linux and OS X an exit code for normal termination will always
 be in the range <code>0..255</code>. If an exit code outside this range is
@@ -193,11 +217,9 @@ cross-platform issues.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">void exit(int code) {
-  if (code is! int) {
-    throw new ArgumentError(&quot;Integer value for exit code expected&quot;);
-  }
+  ArgumentError.checkNotNull(code, &quot;code&quot;);
   if (!_EmbedderConfig._mayExit) {
     throw new UnsupportedError(
         &quot;This embedder disallows calling dart:io&#39;s exit()&quot;);
@@ -208,16 +230,17 @@ cross-platform issues.</p>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

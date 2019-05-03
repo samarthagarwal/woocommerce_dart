@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the RandomAccessFile class from the dart:io library, for the Dart programming language.">
   <title>RandomAccessFile class - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -35,18 +36,32 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-io/dart-io-library.html">dart:io</a></li>
+      <li class="self-crumb">RandomAccessFile abstract class</li>
+    </ol>
+    
     <h5>dart:io library</h5>
     <ol>
       <li class="section-title"><a href="dart-io/dart-io-library.html#classes">Classes</a></li>
       <li><a href="dart-io/BytesBuilder-class.html">BytesBuilder</a></li>
       <li><a href="dart-io/CompressionOptions-class.html">CompressionOptions</a></li>
+      <li><a href="dart-io/ConnectionTask-class.html">ConnectionTask</a></li>
       <li><a href="dart-io/ContentType-class.html">ContentType</a></li>
       <li><a href="dart-io/Cookie-class.html">Cookie</a></li>
       <li><a href="dart-io/Datagram-class.html">Datagram</a></li>
       <li><a href="dart-io/DetachedSocket-class.html">DetachedSocket</a></li>
       <li><a href="dart-io/Directory-class.html">Directory</a></li>
       <li><a href="dart-io/File-class.html">File</a></li>
+      <li><a href="dart-io/FileLock-class.html">FileLock</a></li>
       <li><a href="dart-io/FileMode-class.html">FileMode</a></li>
       <li><a href="dart-io/FileStat-class.html">FileStat</a></li>
       <li><a href="dart-io/FileSystemCreateEvent-class.html">FileSystemCreateEvent</a></li>
@@ -86,6 +101,7 @@
       <li><a href="dart-io/ProcessInfo-class.html">ProcessInfo</a></li>
       <li><a href="dart-io/ProcessResult-class.html">ProcessResult</a></li>
       <li><a href="dart-io/ProcessSignal-class.html">ProcessSignal</a></li>
+      <li><a href="dart-io/ProcessStartMode-class.html">ProcessStartMode</a></li>
       <li><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></li>
       <li><a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a></li>
       <li><a href="dart-io/RawSecureServerSocket-class.html">RawSecureServerSocket</a></li>
@@ -93,6 +109,7 @@
       <li><a href="dart-io/RawServerSocket-class.html">RawServerSocket</a></li>
       <li><a href="dart-io/RawSocket-class.html">RawSocket</a></li>
       <li><a href="dart-io/RawSocketEvent-class.html">RawSocketEvent</a></li>
+      <li><a href="dart-io/RawSocketOption-class.html">RawSocketOption</a></li>
       <li><a href="dart-io/RawSynchronousSocket-class.html">RawSynchronousSocket</a></li>
       <li><a href="dart-io/RawZLibFilter-class.html">RawZLibFilter</a></li>
       <li><a href="dart-io/RedirectInfo-class.html">RedirectInfo</a></li>
@@ -116,15 +133,19 @@
       <li><a href="dart-io/ZLibEncoder-class.html">ZLibEncoder</a></li>
       <li><a href="dart-io/ZLibOption-class.html">ZLibOption</a></li>
     
+    
       <li class="section-title"><a href="dart-io/dart-io-library.html#constants">Constants</a></li>
-      <li><a href="dart-io/APPEND-constant.html">APPEND</a></li>
-      <li><a href="dart-io/GZIP-constant.html">GZIP</a></li>
-      <li><a href="dart-io/READ-constant.html">READ</a></li>
-      <li><a href="dart-io/SYSTEM_ENCODING-constant.html">SYSTEM_ENCODING</a></li>
-      <li><a href="dart-io/WRITE-constant.html">WRITE</a></li>
-      <li><a href="dart-io/WRITE_ONLY-constant.html">WRITE_ONLY</a></li>
-      <li><a href="dart-io/WRITE_ONLY_APPEND-constant.html">WRITE_ONLY_APPEND</a></li>
-      <li><a href="dart-io/ZLIB-constant.html">ZLIB</a></li>
+      <li><a class="deprecated" href="dart-io/APPEND-constant.html">APPEND</a></li>
+      <li><a class="deprecated" href="dart-io/GZIP-constant.html">GZIP</a></li>
+      <li><a href="dart-io/gzip-constant.html">gzip</a></li>
+      <li><a class="deprecated" href="dart-io/READ-constant.html">READ</a></li>
+      <li><a class="deprecated" href="dart-io/SYSTEM_ENCODING-constant.html">SYSTEM_ENCODING</a></li>
+      <li><a href="dart-io/systemEncoding-constant.html">systemEncoding</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE-constant.html">WRITE</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE_ONLY-constant.html">WRITE_ONLY</a></li>
+      <li><a class="deprecated" href="dart-io/WRITE_ONLY_APPEND-constant.html">WRITE_ONLY_APPEND</a></li>
+      <li><a class="deprecated" href="dart-io/ZLIB-constant.html">ZLIB</a></li>
+      <li><a href="dart-io/zlib-constant.html">zlib</a></li>
     
       <li class="section-title"><a href="dart-io/dart-io-library.html#properties">Properties</a></li>
       <li><a href="dart-io/exitCode.html">exitCode</a></li>
@@ -138,9 +159,6 @@
       <li><a href="dart-io/sleep.html">sleep</a></li>
       <li><a href="dart-io/stdioType.html">stdioType</a></li>
     
-      <li class="section-title"><a href="dart-io/dart-io-library.html#enums">Enums</a></li>
-      <li><a href="dart-io/FileLock-class.html">FileLock</a></li>
-      <li><a href="dart-io/ProcessStartMode-class.html">ProcessStartMode</a></li>
     
       <li class="section-title"><a href="dart-io/dart-io-library.html#typedefs">Typedefs</a></li>
       <li><a href="dart-io/BadCertificateCallback.html">BadCertificateCallback</a></li>
@@ -162,8 +180,8 @@
     </ol>
   </div>
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>RandomAccessFile class</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>RandomAccessFile class </h1></div>
 
     <section class="desc markdown">
       <p><code>RandomAccessFile</code> provides random access to the data in a
@@ -201,27 +219,27 @@ synchronous methods. This will also throw a <a href="dart-io/FileSystemException
       <dl class="properties">
         <dt id="path" class="property">
           <span class="name"><a href="dart-io/RandomAccessFile/path.html">path</a></span>
-          <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+          <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>         
         </dt>
         <dd>
           Gets the path of the file underlying this RandomAccessFile.
-          <div class="features">read-only</div>
+                  <div class="features">read-only</div>
 </dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>         
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="dart-core/Object/hashCode.html">[...]</a>
-          <div class="features">read-only, inherited</div>
+                  <div class="features">read-only, inherited</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+          <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>         
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
-          <div class="features">read-only, inherited</div>
+                  <div class="features">read-only, inherited</div>
 </dd>
       </dl>
     </section>
@@ -231,304 +249,304 @@ synchronous methods. This will also throw a <a href="dart-io/FileSystemException
       <dl class="callables">
         <dt id="close" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/close.html">close</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;void&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Closes the file. Returns a <code>Future</code> that
 completes when it has been closed.
-          
+                  
 </dd>
         <dt id="closeSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/closeSync.html">closeSync</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously closes the file. <a href="dart-io/RandomAccessFile/closeSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="flush" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/flush.html">flush</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Flushes the contents of the file to disk. Returns a
 <code>Future&lt;RandomAccessFile&gt;</code> that completes with this
 RandomAccessFile when the flush operation completes.
-          
+                  
 </dd>
         <dt id="flushSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/flushSync.html">flushSync</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously flushes the contents of the file to disk. <a href="dart-io/RandomAccessFile/flushSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="length" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/length.html">length</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Gets the length of the file. Returns a <code>Future&lt;int&gt;</code> that
 completes with the length in bytes.
-          
+                  
 </dd>
         <dt id="lengthSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/lengthSync.html">lengthSync</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously gets the length of the file. <a href="dart-io/RandomAccessFile/lengthSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="lock" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/lock.html">lock</a></span><span class="signature">(<wbr>[<span class="parameter" id="lock-param-mode"><span class="type-annotation"><a href="dart-io/FileLock-class.html">FileLock</a></span> <span class="parameter-name">mode</span> = <span class="default-value">FileLock.EXCLUSIVE</span>, </span> <span class="parameter" id="lock-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="lock-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+          <span class="name"><a href="dart-io/RandomAccessFile/lock.html">lock</a></span><span class="signature">(<wbr>[<span class="parameter" id="lock-param-mode"><span class="type-annotation"><a href="dart-io/FileLock-class.html">FileLock</a></span> <span class="parameter-name">mode</span> = <span class="default-value">FileLock.exclusive</span>, </span> <span class="parameter" id="lock-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="lock-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Locks the file or part of the file. <a href="dart-io/RandomAccessFile/lock.html">[...]</a>
-          
+                  
 </dd>
         <dt id="lockSync" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/lockSync.html">lockSync</a></span><span class="signature">(<wbr>[<span class="parameter" id="lockSync-param-mode"><span class="type-annotation"><a href="dart-io/FileLock-class.html">FileLock</a></span> <span class="parameter-name">mode</span> = <span class="default-value">FileLock.EXCLUSIVE</span>, </span> <span class="parameter" id="lockSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="lockSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
+          <span class="name"><a href="dart-io/RandomAccessFile/lockSync.html">lockSync</a></span><span class="signature">(<wbr>[<span class="parameter" id="lockSync-param-mode"><span class="type-annotation"><a href="dart-io/FileLock-class.html">FileLock</a></span> <span class="parameter-name">mode</span> = <span class="default-value">FileLock.exclusive</span>, </span> <span class="parameter" id="lockSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="lockSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously locks the file or part of the file. <a href="dart-io/RandomAccessFile/lockSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="position" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/position.html">position</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Gets the current byte position in the file. Returns a
 <code>Future&lt;int&gt;</code> that completes with the position.
-          
+                  
 </dd>
         <dt id="positionSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/positionSync.html">positionSync</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously gets the current byte position in the file. <a href="dart-io/RandomAccessFile/positionSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="read" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/read.html">read</a></span><span class="signature">(<wbr><span class="parameter" id="read-param-bytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">bytes</span></span>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Reads <code>bytes</code> bytes from a file and returns the result as a list of bytes.
-          
+                  
 </dd>
         <dt id="readByte" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/readByte.html">readByte</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Reads a byte from the file. Returns a <code>Future&lt;int&gt;</code> that
 completes with the byte, or with -1 if end-of-file has been reached.
-          
+                  
 </dd>
         <dt id="readByteSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/readByteSync.html">readByteSync</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously reads a single byte from the file. If end-of-file
 has been reached -1 is returned. <a href="dart-io/RandomAccessFile/readByteSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="readInto" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/readInto.html">readInto</a></span><span class="signature">(<wbr><span class="parameter" id="readInto-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="readInto-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="readInto-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
+          <span class="name"><a href="dart-io/RandomAccessFile/readInto.html">readInto</a></span><span class="signature">(<wbr><span class="parameter" id="readInto-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="readInto-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="readInto-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
-          Reads into an existing <a href="dart-core/List-class.html">List<int></int></a> from the file. If <code>start</code> is present,
+          Reads into an existing <a href="dart-core/List-class.html">List&lt;int&gt;</a> from the file. If <code>start</code> is present,
 the bytes will be filled into <code>buffer</code> from at index <code>start</code>, otherwise
 index 0. If <code>end</code> is present, the <code>end</code> - <code>start</code> bytes will be read into
 <code>buffer</code>, otherwise up to <code>buffer.length</code>. If <code>end</code> == <code>start</code> nothing
 happens. <a href="dart-io/RandomAccessFile/readInto.html">[...]</a>
-          
+                  
 </dd>
         <dt id="readIntoSync" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/readIntoSync.html">readIntoSync</a></span><span class="signature">(<wbr><span class="parameter" id="readIntoSync-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="readIntoSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="readIntoSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
+          <span class="name"><a href="dart-io/RandomAccessFile/readIntoSync.html">readIntoSync</a></span><span class="signature">(<wbr><span class="parameter" id="readIntoSync-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="readIntoSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="readIntoSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
             <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
-          Synchronously reads into an existing <a href="dart-core/List-class.html">List<int></int></a> from the file. If <code>start</code>
+          Synchronously reads into an existing <a href="dart-core/List-class.html">List&lt;int&gt;</a> from the file. If <code>start</code>
 is present, the bytes will be filled into <code>buffer</code> from at index <code>start</code>,
 otherwise index 0.  If <code>end</code> is present, the <code>end</code> - <code>start</code> bytes will be
 read into <code>buffer</code>, otherwise up to <code>buffer.length</code>. If <code>end</code> == <code>start</code>
 nothing happens. <a href="dart-io/RandomAccessFile/readIntoSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="readSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/readSync.html">readSync</a></span><span class="signature">(<wbr><span class="parameter" id="readSync-param-bytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">bytes</span></span>)
-            <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously reads a maximum of <code>bytes</code> bytes from a file and
 returns the result in a list of bytes. <a href="dart-io/RandomAccessFile/readSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="setPosition" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/setPosition.html">setPosition</a></span><span class="signature">(<wbr><span class="parameter" id="setPosition-param-position"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">position</span></span>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Sets the byte position in the file. Returns a
 <code>Future&lt;RandomAccessFile&gt;</code> that completes with this
 RandomAccessFile when the position has been set.
-          
+                  
 </dd>
         <dt id="setPositionSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/setPositionSync.html">setPositionSync</a></span><span class="signature">(<wbr><span class="parameter" id="setPositionSync-param-position"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">position</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously sets the byte position in the file. <a href="dart-io/RandomAccessFile/setPositionSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="toString" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Returns a human-readable string for this RandomAccessFile instance.
-          
+                  <div class="features">override</div>
 </dd>
         <dt id="truncate" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/truncate.html">truncate</a></span><span class="signature">(<wbr><span class="parameter" id="truncate-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span></span>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Truncates (or extends) the file to <code>length</code> bytes. Returns a
 <code>Future&lt;RandomAccessFile&gt;</code> that completes with this
 RandomAccessFile when the truncation has been performed.
-          
+                  
 </dd>
         <dt id="truncateSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/truncateSync.html">truncateSync</a></span><span class="signature">(<wbr><span class="parameter" id="truncateSync-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously truncates (or extends) the file to <code>length</code> bytes. <a href="dart-io/RandomAccessFile/truncateSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="unlock" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/unlock.html">unlock</a></span><span class="signature">(<wbr>[<span class="parameter" id="unlock-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="unlock-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Unlocks the file or part of the file. <a href="dart-io/RandomAccessFile/unlock.html">[...]</a>
-          
+                  
 </dd>
         <dt id="unlockSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/unlockSync.html">unlockSync</a></span><span class="signature">(<wbr>[<span class="parameter" id="unlockSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="unlockSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span> = <span class="default-value">-1</span></span> ])
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously unlocks the file or part of the file. <a href="dart-io/RandomAccessFile/unlockSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="writeByte" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/writeByte.html">writeByte</a></span><span class="signature">(<wbr><span class="parameter" id="writeByte-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Writes a single byte to the file. Returns a
 <code>Future&lt;RandomAccessFile&gt;</code> that completes with this
 RandomAccessFile when the write completes.
-          
+                  
 </dd>
         <dt id="writeByteSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/writeByteSync.html">writeByteSync</a></span><span class="signature">(<wbr><span class="parameter" id="writeByteSync-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
             <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously writes a single byte to the file. Returns the
 number of bytes successfully written. <a href="dart-io/RandomAccessFile/writeByteSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="writeFrom" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/writeFrom.html">writeFrom</a></span><span class="signature">(<wbr><span class="parameter" id="writeFrom-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="writeFrom-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="writeFrom-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+          <span class="name"><a href="dart-io/RandomAccessFile/writeFrom.html">writeFrom</a></span><span class="signature">(<wbr><span class="parameter" id="writeFrom-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="writeFrom-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="writeFrom-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
-          Writes from a <a href="dart-core/List-class.html">List<int></int></a> to the file. It will read the buffer from index
+          Writes from a <a href="dart-core/List-class.html">List&lt;int&gt;</a> to the file. It will read the buffer from index
 <code>start</code> to index <code>end</code>. If <code>start</code> is omitted, it'll start from index 0.
 If <code>end</code> is omitted, it will write to end of <code>buffer</code>. <a href="dart-io/RandomAccessFile/writeFrom.html">[...]</a>
-          
+                  
 </dd>
         <dt id="writeFromSync" class="callable">
-          <span class="name"><a href="dart-io/RandomAccessFile/writeFromSync.html">writeFromSync</a></span><span class="signature">(<wbr><span class="parameter" id="writeFromSync-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<a href="dart-core/int-class.html">int</a>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="writeFromSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="writeFromSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
+          <span class="name"><a href="dart-io/RandomAccessFile/writeFromSync.html">writeFromSync</a></span><span class="signature">(<wbr><span class="parameter" id="writeFromSync-param-buffer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">buffer</span>, [</span> <span class="parameter" id="writeFromSync-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span> <span class="parameter" id="writeFromSync-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">end</span></span> ])
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
-          Synchronously writes from a <a href="dart-core/List-class.html">List<int></int></a> to the file. It will read the
+          Synchronously writes from a <a href="dart-core/List-class.html">List&lt;int&gt;</a> to the file. It will read the
 buffer from index <code>start</code> to index <code>end</code>. If <code>start</code> is omitted, it'll
 start from index 0. If <code>end</code> is omitted, it will write to the end of
 <code>buffer</code>. <a href="dart-io/RandomAccessFile/writeFromSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="writeString" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/writeString.html">writeString</a></span><span class="signature">(<wbr><span class="parameter" id="writeString-param-string"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span>, {</span> <span class="parameter" id="writeString-param-encoding"><span class="type-annotation"><a href="dart-convert/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span>: <span class="default-value">utf8</span></span> })
-            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span>&gt;</span></span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Writes a string to the file using the given <a href="dart-convert/Encoding-class.html">Encoding</a>. Returns a
 <code>Future&lt;RandomAccessFile&gt;</code> that completes with this
 RandomAccessFile when the write completes.
-          
+                  
 </dd>
         <dt id="writeStringSync" class="callable">
           <span class="name"><a href="dart-io/RandomAccessFile/writeStringSync.html">writeStringSync</a></span><span class="signature">(<wbr><span class="parameter" id="writeStringSync-param-string"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span>, {</span> <span class="parameter" id="writeStringSync-param-encoding"><span class="type-annotation"><a href="dart-convert/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span>: <span class="default-value">utf8</span></span> })
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+                  </dt>
         <dd>
           Synchronously writes a single string to the file using the given
 <a href="dart-convert/Encoding-class.html">Encoding</a>. <a href="dart-io/RandomAccessFile/writeStringSync.html">[...]</a>
-          
+                  
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
           <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+                  </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="dart-core/Object/noSuchMethod.html">[...]</a>
-          <div class="features">inherited</div>
+                  <div class="features">inherited</div>
 </dd>
       </dl>
     </section>
@@ -540,10 +558,10 @@ RandomAccessFile when the write completes.
           <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
           </span>
-        </dt>
+                  </dt>
         <dd class="inherited">
           The equality operator. <a href="dart-core/Object/operator_equals.html">[...]</a>
-          <div class="features">inherited</div>
+                  <div class="features">inherited</div>
 </dd>
       </dl>
     </section>
@@ -553,7 +571,7 @@ RandomAccessFile when the write completes.
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <ol>
       <li class="section-title"><a href="dart-io/RandomAccessFile-class.html#constructors">Constructors</a></li>
       <li><a href="dart-io/RandomAccessFile/RandomAccessFile.html">RandomAccessFile</a></li>
@@ -609,9 +627,10 @@ RandomAccessFile when the write completes.
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

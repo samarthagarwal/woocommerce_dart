@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the wait method from the Future class, for the Dart programming language.">
   <title>wait method - Future class - dart:async library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
   <link rel="icon" href="static-assets/favicon.png">
-
+  
 </head>
 
 <body>
@@ -25,8 +26,8 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">woocommerce_api</a></li>
     <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
-    <li><a href="dart-async/Future-class.html">Future<span class="signature">&lt;T&gt;</span></a></li>
-    <li class="self-crumb">wait&lt;T&gt; method</li>
+    <li><a href="dart-async/Future-class.html">Future<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+    <li class="self-crumb">wait&lt;<wbr><span class="type-parameter">T</span>&gt; method</li>
   </ol>
   <div class="self-name">wait</div>
   <form class="search navbar-right" role="search">
@@ -36,7 +37,20 @@
 
 <main>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="index.html">woocommerce_api</a></li>
+      <li><a href="dart-async/dart-async-library.html">dart:async</a></li>
+      <li><a href="dart-async/Future-class.html">Future<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+      <li class="self-crumb">wait&lt;<wbr><span class="type-parameter">T</span>&gt; method</li>
+    </ol>
+    
     <h5>Future class</h5>
     <ol>
       <li class="section-title"><a href="dart-async/Future-class.html#constructors">Constructors</a></li>
@@ -75,21 +89,23 @@
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
-  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>wait&lt;T&gt; method</h1>
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1>wait&lt;<wbr><span class="type-parameter">T</span>&gt; method</h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<a href="dart-core/List-class.html">List</a><span class="signature">&lt;T&gt;</span>&gt;</span></span>
-      <span class="name ">wait</span>
-&lt;T&gt;(<wbr><span class="parameter" id="wait-param-futures"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;T&gt;</span>&gt;</span></span> <span class="parameter-name">futures</span>, {</span> <span class="parameter" id="wait-param-eagerError"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">eagerError</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="wait-param-cleanUp"><span class="type-annotation">void</span> <span class="parameter-name">cleanUp</span>(<span class="parameter" id="cleanUp-param-successValue"><span class="type-annotation">T</span> <span class="parameter-name">successValue</span></span>)</span> })
+      <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+            <span class="name ">wait</span>
+&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><span class="parameter" id="wait-param-futures"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">futures</span>, {</span> <span class="parameter" id="wait-param-eagerError"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">eagerError</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="wait-param-cleanUp"><span class="type-annotation">void</span> <span class="parameter-name">cleanUp</span>(<span class="parameter" id="cleanUp-param-successValue"><span class="type-annotation">T</span> <span class="parameter-name">successValue</span></span>)</span> })
+      
     </section>
     <section class="desc markdown">
       <p>Waits for multiple futures to complete and collects their results.</p>
 <p>Returns a future which will complete once all the provided futures
-have completed, either with their results, or with an error if either
+have completed, either with their results, or with an error if any
 of the provided futures fail.</p>
 <p>The value of the returned future will be a list of all the values that
-were produced.</p>
+were produced in the order that the futures are provided by iterating
+<code>futures</code>.</p>
 <p>If any future completes with an error,
 then the returned future completes with that error.
 If further futures also complete with errors, those errors are discarded.</p>
@@ -107,7 +123,7 @@ uncaught asynchronous error.</p>
     </section>
     
     <section class="summary source-code" id="source">
-      <h2><span>Implementation</span> </h2>
+      <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">static Future&lt;List&lt;T&gt;&gt; wait&lt;T&gt;(Iterable&lt;Future&lt;T&gt;&gt; futures,
     {bool eagerError: false, void cleanUp(T successValue)}) {
   final _Future&lt;List&lt;T&gt;&gt; result = new _Future&lt;List&lt;T&gt;&gt;();
@@ -119,7 +135,7 @@ uncaught asynchronous error.</p>
   &#47;&#47; Handle an error from any of the futures.
   &#47;&#47; TODO(jmesserly): use `void` return type once it can be inferred for the
   &#47;&#47; `then` call below.
-  handleError(theError, theStackTrace) {
+  handleError(theError, StackTrace theStackTrace) {
     remaining--;
     if (values != null) {
       if (cleanUp != null) {
@@ -202,16 +218,17 @@ uncaught asynchronous error.</p>
 
   </div> <!-- /.main-content -->
 
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
 
 </main>
 
 <footer>
   <span class="no-break">
-    woocommerce_api 0.0.2
+    woocommerce_api 0.0.8
   </span>
 
+  
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
