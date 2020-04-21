@@ -9,6 +9,7 @@ import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
+import 'package:woocommerce_api/woocommerce_error.dart';
 
 class WooCommerceAPI {
   String url;
@@ -16,22 +17,20 @@ class WooCommerceAPI {
   String consumerSecret;
   bool isHttps;
 
-  WooCommerceAPI(url, consumerKey, consumerSecret){
+  WooCommerceAPI(url, consumerKey, consumerSecret) {
     this.url = url;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
 
-    if(this.url.startsWith("https")){
+    if (this.url.startsWith("https")) {
       this.isHttps = true;
     } else {
       this.isHttps = false;
     }
-
   }
 
-
   _getOAuthURL(String request_method, String endpoint) {
-    var consumerKey = this.consumerKey; 
+    var consumerKey = this.consumerKey;
     var consumerSecret = this.consumerSecret;
 
     var token = "";
@@ -40,8 +39,17 @@ class WooCommerceAPI {
     var containsQueryParams = url.contains("?");
 
     // If website is HTTPS based, no need for OAuth, just return the URL with CS and CK as query params
-    if(this.isHttps == true){
-      return url + (containsQueryParams == true ? "&consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret : "?consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret);
+    if (this.isHttps == true) {
+      return url +
+          (containsQueryParams == true
+              ? "&consumer_key=" +
+                  this.consumerKey +
+                  "&consumer_secret=" +
+                  this.consumerSecret
+              : "?consumer_key=" +
+                  this.consumerKey +
+                  "&consumer_secret=" +
+                  this.consumerSecret);
     }
 
     var rand = new Random();
@@ -131,12 +139,32 @@ class WooCommerceAPI {
     return requestUrl;
   }
 
+  Exception _handleError(http.Response response) {
+    switch (response.statusCode) {
+      case 400:
+      case 401:
+      case 404:
+      case 500:
+        throw Exception(
+            WooCommerceError.fromJson(json.decode(response.body)).toString());
+      default:
+        throw Exception(
+            "An error occurred, status code: ${response.statusCode}");
+    }
+  }
+
   Future<dynamic> getAsync(String endPoint) async {
     var url = this._getOAuthURL("GET", endPoint);
 
-    final response = await http.get(url);
-
-    return json.decode(response.body);
+    try {
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+      _handleError(response);
+    } on SocketException {
+      throw Exception('No Internet connection.');
+    }
   }
 
   Future<dynamic> postAsync(String endPoint, Map data) async {
