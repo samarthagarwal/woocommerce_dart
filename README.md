@@ -5,7 +5,7 @@ A dart package to interact with the WooCommerce API. It uses OAuth1.0a behind th
 ![Example code and preview](Screenshot.png)
 
 ## Complete Usage Example
-```
+```dart
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -43,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     /// Initialize the API
     WooCommerceAPI wc_api = new WooCommerceAPI(
-        "https://www.yourwebsite.com",
-        "ck_your_consumer_key",
-        "cs_your_consumer_secret"
+        url: "https://www.yourwebsite.com",
+        consumerKey: "ck_your_consumer_key",
+        consumerSecret: "cs_your_consumer_secret"
     );
     
     /// Get data using the endpoint
@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
 ```
 
 ### Example of making a POST (Create a customer)
-```
+```dart
 Future createCustomer() async {
   try {
     var response = await wooCommerceAPI.postAsync(
