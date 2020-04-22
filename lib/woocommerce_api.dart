@@ -12,11 +12,11 @@ import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
 import 'package:woocommerce_api/woocommerce_error.dart';
 
-/// [url] is you're site's base URL, eg: ```https://www.yourdomain.com```
+/// [url] is you're site's base URL, e.g. `https://www.yourdomain.com`
 ///
-/// [consumerKey] is the consumer key provided by WooCommerce, e.g. ```ck_1a2b3c4d5e6f7g8h9i```
+/// [consumerKey] is the consumer key provided by WooCommerce, e.g. `ck_1a2b3c4d5e6f7g8h9i`
 ///
-/// [consumerSecret] is the consumer secret provided by WooCommerce, e.g. ```cs_1a2b3c4d5e6f7g8h9i```
+/// [consumerSecret] is the consumer secret provided by WooCommerce, e.g. `cs_1a2b3c4d5e6f7g8h9i`
 ///
 /// [isHttps] check if [url] is https based
 class WooCommerceAPI {
