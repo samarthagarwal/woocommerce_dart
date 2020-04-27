@@ -7,57 +7,77 @@ import 'dart:io';
 import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
+import 'package:flutter/foundation.dart';
 import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
+import 'package:woocommerce_api/woocommerce_error.dart';
 
+/// [url] is you're site's base URL, e.g. `https://www.yourdomain.com`
+///
+/// [consumerKey] is the consumer key provided by WooCommerce, e.g. `ck_1a2b3c4d5e6f7g8h9i`
+///
+/// [consumerSecret] is the consumer secret provided by WooCommerce, e.g. `cs_1a2b3c4d5e6f7g8h9i`
+///
+/// [isHttps] check if [url] is https based
 class WooCommerceAPI {
   String url;
   String consumerKey;
   String consumerSecret;
   bool isHttps;
 
-  WooCommerceAPI(url, consumerKey, consumerSecret){
+  WooCommerceAPI({
+    @required String url,
+    @required String consumerKey,
+    @required String consumerSecret,
+  }) {
     this.url = url;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
 
-    if(this.url.startsWith("https")){
+    if (this.url.startsWith("https")) {
       this.isHttps = true;
     } else {
       this.isHttps = false;
     }
-
   }
 
+  /// Generate a valid OAuth 1.0 URL
+  ///
+  /// if [isHttps] is true we just return the URL with
+  /// [consumerKey] and [consumerSecret] as query parameters
+  String _getOAuthURL(String requestMethod, String endpoint) {
+    String consumerKey = this.consumerKey;
+    String consumerSecret = this.consumerSecret;
 
-  _getOAuthURL(String request_method, String endpoint) {
-    var consumerKey = this.consumerKey; 
-    var consumerSecret = this.consumerSecret;
+    String token = "";
+    String url = this.url + "/wp-json/wc/v2/" + endpoint;
+    bool containsQueryParams = url.contains("?");
 
-    var token = "";
-    var token_secret = "";
-    var url = this.url + "/wp-json/wc/v2/" + endpoint;
-    var containsQueryParams = url.contains("?");
-
-    // If website is HTTPS based, no need for OAuth, just return the URL with CS and CK as query params
-    if(this.isHttps == true){
-      return url + (containsQueryParams == true ? "&consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret : "?consumer_key=" + this.consumerKey + "&consumer_secret=" + this.consumerSecret);
+    if (this.isHttps == true) {
+      return url +
+          (containsQueryParams == true
+              ? "&consumer_key=" +
+                  this.consumerKey +
+                  "&consumer_secret=" +
+                  this.consumerSecret
+              : "?consumer_key=" +
+                  this.consumerKey +
+                  "&consumer_secret=" +
+                  this.consumerSecret);
     }
 
-    var rand = new Random();
-    var codeUnits = new List.generate(10, (index) {
+    Random rand = Random();
+    List<int> codeUnits = List.generate(10, (index) {
       return rand.nextInt(26) + 97;
     });
 
-    var nonce = new String.fromCharCodes(codeUnits);
-    int timestamp = (new DateTime.now().millisecondsSinceEpoch / 1000).toInt();
+    /// Random string uniquely generated to identify each signed request
+    String nonce = String.fromCharCodes(codeUnits);
 
-    //print(timestamp);
-    //print(nonce);
+    /// The timestamp allows the Service Provider to only keep nonce values for a limited time
+    int timestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-    var method = request_method;
-    var path = url.split("?")[0];
-    var parameters = "oauth_consumer_key=" +
+    String parameters = "oauth_consumer_key=" +
         consumerKey +
         "&oauth_nonce=" +
         nonce +
@@ -89,38 +109,34 @@ class WooCommerceAPI {
 
     parameterString = parameterString.substring(0, parameterString.length - 1);
 
-    var baseString = method +
+    String method = requestMethod;
+    String baseString = method +
         "&" +
         Uri.encodeQueryComponent(
             containsQueryParams == true ? url.split("?")[0] : url) +
         "&" +
         Uri.encodeQueryComponent(parameterString);
 
-    //print(baseString);
+    String signingKey = consumerSecret + "&" + token;
+    crypto.Hmac hmacSha1 =
+        crypto.Hmac(crypto.sha1, utf8.encode(signingKey)); // HMAC-SHA1
 
-    var signingKey = consumerSecret + "&" + token;
-    //print(signingKey);
-    //print(UTF8.encode(signingKey));
-    var hmacSha1 =
-        new crypto.Hmac(crypto.sha1, utf8.encode(signingKey)); // HMAC-SHA1
-    var signature = hmacSha1.convert(utf8.encode(baseString));
+    /// The Signature is used by the server to verify the
+    /// authenticity of the request and prevent unauthorized access.
+    /// Here we use HMAC-SHA1 method.
+    crypto.Digest signature = hmacSha1.convert(utf8.encode(baseString));
 
-    //print(signature);
+    String finalSignature = base64Encode(signature.bytes);
 
-    var finalSignature = base64Encode(signature.bytes);
-    //print(finalSignature);
-
-    var requestUrl = "";
+    String requestUrl = "";
 
     if (containsQueryParams == true) {
-      //print(url.split("?")[0] + "?" + parameterString + "&oauth_signature=" + Uri.encodeQueryComponent(finalSignature));
       requestUrl = url.split("?")[0] +
           "?" +
           parameterString +
           "&oauth_signature=" +
           Uri.encodeQueryComponent(finalSignature);
     } else {
-      //print(url + "?" +  parameterString + "&oauth_signature=" + Uri.encodeQueryComponent(finalSignature));
       requestUrl = url +
           "?" +
           parameterString +
@@ -131,24 +147,47 @@ class WooCommerceAPI {
     return requestUrl;
   }
 
+  /// Handle network errors if [response.statusCode] is not 200 (OK).
+  ///
+  /// WooCommerce supports and give informations about errors 400, 401, 404 and 500
+  Exception _handleError(http.Response response) {
+    switch (response.statusCode) {
+      case 400:
+      case 401:
+      case 404:
+      case 500:
+        throw Exception(
+            WooCommerceError.fromJson(json.decode(response.body)).toString());
+      default:
+        throw Exception(
+            "An error occurred, status code: ${response.statusCode}");
+    }
+  }
+
   Future<dynamic> getAsync(String endPoint) async {
-    var url = this._getOAuthURL("GET", endPoint);
+    String url = this._getOAuthURL("GET", endPoint);
 
-    final response = await http.get(url);
-
-    return json.decode(response.body);
+    try {
+      final http.Response response = await http.get(url);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+      _handleError(response);
+    } on SocketException {
+      throw Exception('No Internet connection.');
+    }
   }
 
   Future<dynamic> postAsync(String endPoint, Map data) async {
-    var url = this._getOAuthURL("POST", endPoint);
+    String url = this._getOAuthURL("POST", endPoint);
 
-    var client = new http.Client();
-    var request = new http.Request('POST', Uri.parse(url));
+    http.Client client = http.Client();
+    http.Request request = http.Request('POST', Uri.parse(url));
     request.headers[HttpHeaders.contentTypeHeader] =
         'application/json; charset=utf-8';
     request.headers[HttpHeaders.cacheControlHeader] = "no-cache";
     request.body = json.encode(data);
-    var response =
+    String response =
         await client.send(request).then((res) => res.stream.bytesToString());
     var dataResponse = await json.decode(response);
     return dataResponse;

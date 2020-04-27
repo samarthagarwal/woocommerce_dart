@@ -1,10 +1,8 @@
 class QueryString {
-  /**
-   * Parses the given query string into a Map.
-   */
+  /// Parses the given query string into a Map.
   static Map parse(String query) {
-    var search = new RegExp('([^&=]+)=?([^&]*)');
-    var result = new Map();
+    RegExp search = RegExp('([^&=]+)=?([^&]*)');
+    Map result = Map();
 
     // Get rid off the beginning ? in query strings.
     if (query.startsWith('?')) query = query.substring(1);
