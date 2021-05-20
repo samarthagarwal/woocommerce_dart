@@ -7,7 +7,6 @@ import 'dart:io';
 import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
-import 'package:flutter/foundation.dart';
 import 'package:woocommerce_api/query_string.dart';
 import 'package:http/http.dart' as http;
 import 'package:woocommerce_api/woocommerce_error.dart';
@@ -23,12 +22,12 @@ class WooCommerceAPI {
   String url;
   String consumerKey;
   String consumerSecret;
-  bool isHttps;
+  bool? isHttps;
 
   WooCommerceAPI({
-    @required String url,
-    @required String consumerKey,
-    @required String consumerSecret,
+    required this.url,
+    required this.consumerKey,
+    required this.consumerSecret,
   }) {
     this.url = url;
     this.consumerKey = consumerKey;
@@ -168,7 +167,7 @@ class WooCommerceAPI {
     String url = this._getOAuthURL("GET", endPoint);
 
     try {
-      final http.Response response = await http.get(url);
+      final http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         return json.decode(response.body);
       }

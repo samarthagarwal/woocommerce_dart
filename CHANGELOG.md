@@ -1,3 +1,8 @@
+## [0.1.0]
+* Added null-safety
+* Updated min-sdk constraint to 2.12.0
+* Updated the example
+
 ## [0.0.8]
 * Fixed a bug where POST reuqest could not handle nested JSON data
 
