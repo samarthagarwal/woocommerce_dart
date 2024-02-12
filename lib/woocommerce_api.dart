@@ -1,15 +1,14 @@
 library woocommerce_api;
 
-import 'dart:async';
 import "dart:collection";
 import 'dart:convert';
 import 'dart:io';
 import "dart:math";
 import "dart:core";
 import 'package:crypto/crypto.dart' as crypto;
-import 'package:woocommerce_api/query_string.dart';
+import './query_string.dart';
 import 'package:http/http.dart' as http;
-import 'package:woocommerce_api/woocommerce_error.dart';
+import './woocommerce_error.dart';
 
 /// [url] is you're site's base URL, e.g. `https://www.yourdomain.com`
 ///
@@ -29,14 +28,10 @@ class WooCommerceAPI {
     required this.consumerKey,
     required this.consumerSecret,
   }) {
-    this.url = url;
-    this.consumerKey = consumerKey;
-    this.consumerSecret = consumerSecret;
-
-    if (this.url.startsWith("https")) {
-      this.isHttps = true;
+    if (url.startsWith("https")) {
+      isHttps = true;
     } else {
-      this.isHttps = false;
+      isHttps = false;
     }
   }
 
@@ -49,20 +44,14 @@ class WooCommerceAPI {
     String consumerSecret = this.consumerSecret;
 
     String token = "";
-    String url = this.url + "/wp-json/wc/v2/" + endpoint;
+    String url = '${this.url}/wp-json/wc/v2/$endpoint';
     bool containsQueryParams = url.contains("?");
 
-    if (this.isHttps == true) {
+    if (isHttps == true) {
       return url +
           (containsQueryParams == true
-              ? "&consumer_key=" +
-                  this.consumerKey +
-                  "&consumer_secret=" +
-                  this.consumerSecret
-              : "?consumer_key=" +
-                  this.consumerKey +
-                  "&consumer_secret=" +
-                  this.consumerSecret);
+              ? '&consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}'
+              : '?consumer_key=${this.consumerKey}&consumer_secret=${this.consumerSecret}');
     }
 
     Random rand = Random();
@@ -76,15 +65,8 @@ class WooCommerceAPI {
     /// The timestamp allows the Service Provider to only keep nonce values for a limited time
     int timestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-    String parameters = "oauth_consumer_key=" +
-        consumerKey +
-        "&oauth_nonce=" +
-        nonce +
-        "&oauth_signature_method=HMAC-SHA1&oauth_timestamp=" +
-        timestamp.toString() +
-        "&oauth_token=" +
-        token +
-        "&oauth_version=1.0&";
+    String parameters =
+        'oauth_consumer_key=$consumerKey&oauth_nonce=$nonce&oauth_signature_method=HMAC-SHA1&oauth_timestamp=${timestamp.toString()}&oauth_token=$token&oauth_version=1.0&';
 
     if (containsQueryParams == true) {
       parameters = parameters + url.split("?")[1];
@@ -93,30 +75,22 @@ class WooCommerceAPI {
     }
 
     Map<dynamic, dynamic> params = QueryString.parse(parameters);
-    Map<dynamic, dynamic> treeMap = new SplayTreeMap<dynamic, dynamic>();
+    Map<dynamic, dynamic> treeMap = SplayTreeMap<dynamic, dynamic>();
     treeMap.addAll(params);
 
     String parameterString = "";
 
     for (var key in treeMap.keys) {
-      parameterString = parameterString +
-          Uri.encodeQueryComponent(key) +
-          "=" +
-          treeMap[key] +
-          "&";
+      parameterString =
+          '$parameterString${Uri.encodeQueryComponent(key)}=${treeMap[key]}&';
     }
 
     parameterString = parameterString.substring(0, parameterString.length - 1);
 
     String method = requestMethod;
-    String baseString = method +
-        "&" +
-        Uri.encodeQueryComponent(
-            containsQueryParams == true ? url.split("?")[0] : url) +
-        "&" +
-        Uri.encodeQueryComponent(parameterString);
+    String baseString = '$method&${Uri.encodeQueryComponent(containsQueryParams == true ? url.split("?")[0] : url)}&${Uri.encodeQueryComponent(parameterString)}';
 
-    String signingKey = consumerSecret + "&" + token;
+    String signingKey = '$consumerSecret&$token';
     crypto.Hmac hmacSha1 =
         crypto.Hmac(crypto.sha1, utf8.encode(signingKey)); // HMAC-SHA1
 
@@ -130,17 +104,9 @@ class WooCommerceAPI {
     String requestUrl = "";
 
     if (containsQueryParams == true) {
-      requestUrl = url.split("?")[0] +
-          "?" +
-          parameterString +
-          "&oauth_signature=" +
-          Uri.encodeQueryComponent(finalSignature);
+      requestUrl = '${url.split("?")[0]}?$parameterString&oauth_signature=${Uri.encodeQueryComponent(finalSignature)}';
     } else {
-      requestUrl = url +
-          "?" +
-          parameterString +
-          "&oauth_signature=" +
-          Uri.encodeQueryComponent(finalSignature);
+      requestUrl = '$url?$parameterString&oauth_signature=${Uri.encodeQueryComponent(finalSignature)}';
     }
 
     return requestUrl;
@@ -164,7 +130,7 @@ class WooCommerceAPI {
   }
 
   Future<dynamic> getAsync(String endPoint) async {
-    String url = this._getOAuthURL("GET", endPoint);
+    String url = _getOAuthURL("GET", endPoint);
 
     try {
       final http.Response response = await http.get(Uri.parse(url));
@@ -178,7 +144,7 @@ class WooCommerceAPI {
   }
 
   Future<dynamic> postAsync(String endPoint, Map data) async {
-    String url = this._getOAuthURL("POST", endPoint);
+    String url = _getOAuthURL("POST", endPoint);
 
     http.Client client = http.Client();
     http.Request request = http.Request('POST', Uri.parse(url));
